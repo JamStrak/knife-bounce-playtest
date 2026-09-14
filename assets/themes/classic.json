@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "classic",
+  "name": "经典深色",
+  "style": "classic",
+  "palette": {
+    "background": "#10231d",
+    "shellTop": "#19372c",
+    "shellBottom": "#10231d",
+    "surface": "#1c352a",
+    "surfaceAlt": "#243e32",
+    "text": "#f4f1df",
+    "muted": "#9db09e",
+    "border": "#385347",
+    "primary": "#627c48",
+    "secondary": "#d98b51",
+    "accent": "#daeba5",
+    "onPrimary": "#ffffff"
+  },
+  "render": {
+    "floor": "#243c31",
+    "grid": "#3c514066",
+    "dangerZone": "#fa945611",
+    "dangerLine": "#dc8c59",
+    "floorText": "#74937c",
+    "shadow": "#75533735",
+    "health": "#172d23",
+    "healthDanger": "#aa493b",
+    "healthText": "#ffffff",
+    "aim": "#f9bd79",
+    "trail": "#ffd29388",
+    "origin": "#309bd688",
+    "recall": "#e1f5b9",
+    "recallTrail": "#c2ecac66",
+    "blast": "#faffb944",
+    "floatText": "#ffe2ae",
+    "leakParticle": "#ff7669",
+    "killParticle": "#dbed9b",
+    "hitParticle": "#ffa05e"
+  },
+  "slots": {
+    "enemy": {
+      "src": "assets/enemy.svg",
+      "width": 1.25,
+      "height": 1.25
+    },
+    "enemyHit": {
+      "src": "",
+      "width": 1.25,
+      "height": 1.25,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 12,
+      "loop": false
+    },
+    "corpse": {
+      "src": "assets/corpse.svg",
+      "width": 1.25,
+      "height": 1.25
+    },
+    "knife": {
+      "src": "assets/knife.svg",
+      "width": 1,
+      "height": 0.3,
+      "anchorX": 0.83,
+      "anchorY": 0.5
+    },
+    "background": {
+      "src": "",
+      "width": 1,
+      "height": 1,
+      "anchorX": 0,
+      "anchorY": 0,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 1,
+      "loop": true
+    },
+    "launcher": {
+      "src": ""
+    },
+    "enemyOrange": {
+      "src": ""
+    },
+    "corpseOrange": {
+      "src": ""
+    },
+    "floorTile": {
+      "src": ""
+    },
+    "uiCrown": {
+      "src": "assets/toy/crown.png"
+    },
+    "uiHeart": {
+      "src": "assets/toy/heart.png"
+    },
+    "uiCoin": {
+      "src": "assets/toy/coin.png"
+    },
+    "uiXp": {
+      "src": "assets/toy/xp-icon.png"
+    },
+    "uiTrack": {
+      "src": ""
+    },
+    "uiButton": {
+      "src": ""
+    },
+    "uiPause": {
+      "src": "assets/toy/pause.png"
+    },
+    "uiBrand": {
+      "src": "assets/toy/knife.png"
+    }
+  }
+}

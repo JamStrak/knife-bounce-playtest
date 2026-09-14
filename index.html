@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+<script>const shareUrl=new URL(location.href);if(!shareUrl.searchParams.has("mode"))shareUrl.searchParams.set("mode","stages");if(!shareUrl.searchParams.has("theme"))shareUrl.searchParams.set("theme","crystal");history.replaceState(null,"",shareUrl);</script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#3d9ef2" />
+    <title>飞刀弹弹乐</title>
+    <link rel="icon" href="assets/toy/coin.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="toy-theme.css" id="toySkin" />
+    <link rel="stylesheet" href="theme-system.css" />
+    <link rel="stylesheet" href="mask-editor.css" />
+    <link rel="stylesheet" href="balance-lab.css" />
+    <link rel="stylesheet" href="audio-lab.css" />
+    <link rel="stylesheet" href="stage-ui.css" />
+  </head>
+  <body>
+    <div class="workspace">
+      <main class="game-shell" aria-label="游戏区">
+        <header class="game-header">
+          <div class="brand">
+            <span class="brand-icon"
+              ><img id="themeBrand" src="assets/toy/knife.png" alt=""
+            /></span>
+            <div>飞刀弹弹乐<small>KNIFE PARTY</small></div>
+          </div>
+          <div class="header-actions">
+            <button id="fullscreen" aria-label="切换全屏" title="切换全屏">
+              ⛶</button
+            ><button id="tune" disabled aria-expanded="false">⚙ 调试台</button>
+          </div>
+        </header>
+        <section class="hud-panel">
+          <div class="scoreboard">
+            <div class="score-label">
+              本局得分<strong id="score">0000</strong>
+            </div>
+            <div class="counters">
+              <div><small>防线</small><span id="lives">5</span></div>
+              <button id="openShop" disabled aria-label="金币强化商店">
+                <small>金币强化 ↗</small><span id="coins">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="xp-row">
+            <span id="level">LV.01</span>
+            <div class="xp-track"><i id="xp"></i></div>
+            <span id="xpLabel">0 / 2</span>
+          </div>
+        </section>
+        <section class="battle-stage" aria-label="战场">
+          <div class="arena-wrap">
+            <div class="battle-heading">
+              <label class="mode-choice"
+                ><select
+                  id="gameModeChoice"
+                  aria-label="游戏模式（切换重新开局）"
+                  title="切换模式会重新开局"
+                >
+                  <option value="endless">无尽挑战</option>
+                  <option value="stages">关卡远征</option>
+                </select></label
+              >
+              <span class="battle-theme-name" hidden>默认主题</span>
+            </div>
+            <section
+              id="stageStatus"
+              class="stage-status"
+              aria-label="关卡目标"
+              hidden
+            >
+              <div class="stage-title-row">
+                <button
+                  id="stageRouteButton"
+                  title="查看路线与本关目标"
+                  aria-describedby="stageObjective"
+                >
+                  <strong id="stageTitle"></strong> ↗</button
+                ><span id="stageProgress"></span>
+              </div>
+              <div id="stageObjective" class="stage-objective"></div>
+            </section>
+            <div id="bossStatus" hidden>
+              <div class="boss-title-row">
+                <strong id="bossName"></strong><span id="bossHp"></span>
+              </div>
+              <div class="boss-track"><i id="bossFill"></i></div>
+              <div id="bossIntent"></div>
+            </div>
+            <div id="comboStatus" class="combo-status" hidden></div>
+            <div class="arena-label">
+              <span id="round">ROUND 01</span><span id="phase">正在加载</span>
+            </div>
+            <canvas
+              id="arena"
+              aria-label="飞刀战场，拖动瞄准松手发射"
+              tabindex="0"
+            ></canvas>
+            <div id="overlay" class="overlay" hidden></div>
+          </div>
+        </section>
+        <section class="bottom-deck">
+          <div class="play-hint" id="hint">按住战场瞄准 · 松手出刀</div>
+          <div class="play-controls">
+            <button id="retry">↶ 重试</button><button id="pause">Ⅱ 暂停</button
+            ><button id="restart">↻ 重开</button>
+            <details id="buildDetails" class="build-details">
+              <summary aria-label="展开构筑与属性">✦ 构筑</summary>
+              <div class="build-popover">
+                <div class="build-popover-heading">
+                  本局构筑与属性 <small>再次点击构筑收起</small>
+                </div>
+                <div class="build-strip">
+                  <span class="build-icon">✦</span>
+                  <div id="buffs" class="buffs"></div>
+                </div>
+                <div id="stats" class="stats"></div>
+                <div class="bottom-meta">
+                  <span id="liveStatus">等待你的第一刀</span
+                  ><button id="phone">手机试玩 ↗</button
+                  ><span id="physicsBadge">重力关闭</span><span>v0.41.0</span>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+        <section
+          id="stageScreen"
+          class="stage-screen"
+          role="region"
+          aria-label="关卡旅程"
+          hidden
+        ></section>
+      </main>
+    </div>
+    <dialog id="shop" aria-labelledby="shopTitle">
+      <div class="dialog-head">
+        <div>
+          <small>COIN WORKSHOP</small>
+          <h2 id="shopTitle">金币强化</h2>
+        </div>
+        <button id="closeShop" aria-label="关闭金币商店">✕</button>
+      </div>
+      <div class="shop-wallet">
+        <span>本局金币</span><strong id="shopCoins">0</strong
+        ><small>强化留在本局 · 不消耗回合</small>
+      </div>
+      <p id="shopMessage" class="small" role="status"></p>
+      <div id="shopItems" class="shop-items"></div>
+      <p class="small">
+        每种强化独立涨价。解锁能力仍靠经验三选一，金币帮你加强喜欢的构筑。
+      </p>
+    </dialog>
+    <dialog id="debug">
+      <div class="dialog-head">
+        <div>
+          <small>PLAY LAB</small>
+          <h2>手感调试台</h2>
+        </div>
+        <button id="closeDebug" aria-label="关闭调试台">✕</button>
+      </div>
+      <p class="small">
+        PC
+        左侧面板可边玩边调；手机面板打开时暂停，关闭继续。结构调整需应用并重开。
+      </p>
+      <details id="themeLab" class="debug-section theme-lab">
+        <summary>主题工作台 <small>内部测试</small></summary>
+        <p class="small">
+          切换整套美术与配色，保留对局。主题与玩法参数分开保存。
+        </p>
+        <label class="theme-line"
+          >内置主题<select id="themeSelect" aria-label="内置主题"></select
+        ></label>
+        <div class="debug-actions">
+          <button id="themeSave" class="accent">保存主题</button
+          ><button id="themeRestore">恢复已存主题</button>
+          <button id="themeExport">导出主题包</button>
+          <label class="file-button"
+            >导入主题包<input
+              id="themeImport"
+              type="file"
+              accept=".json,application/json"
+              hidden
+          /></label>
+        </div>
+        <p id="themeState" class="small" role="status">正在加载主题…</p>
+        <button id="crystalTest">试玩晶糖 · 6列10行 / 三种怪物（重开）</button>
+        <p class="small">
+          蓝色普通怪 · 粉色快速怪 ·
+          橙黄色爆炸怪。仅套用战场行列与怪物开关，其余已调参数沿用。
+        </p>
+        <details>
+          <summary>背景碰撞框</summary>
+          <button id="themeArenaEdit">显示范围并拖动调整</button>
+          <p class="small">
+            按背景图宽高的0～1比例对齐内墙。修改不改变格子数；调试台搜索“实际碰撞边界”可显示绿色参考框。
+          </p>
+          <label
+            ><input
+              id="themeArenaEnabled"
+              type="checkbox"
+            />使用图片内侧碰撞框</label
+          >
+          <div id="themeArenaGeometry" class="theme-grid"></div>
+          <button id="themeApplyArena">应用碰撞框预览</button>
+          <p class="small">
+            满意后点击“保存主题”；行列数、怪物数值使用“保存参数”。
+          </p>
+        </details>
+        <details>
+          <summary>编辑名称与风格</summary>
+          <label class="theme-line"
+            >名称<input id="themeName" maxlength="60" aria-label="主题名称"
+          /></label>
+          <label class="theme-line"
+            >主题 ID<input id="themeId" maxlength="64" aria-label="主题ID"
+          /></label>
+          <label class="theme-line"
+            >皮肤样式<select id="themeStyle" aria-label="皮肤样式">
+              <option value="toy">玩具圆润</option>
+              <option value="crystal">晶糖玻璃</option>
+              <option value="classic">经典简洁</option>
+            </select></label
+          >
+        </details>
+        <details>
+          <summary>界面配色</summary>
+          <p class="small">点击色块选色，或输入 #RRGGBB；修改后立即预览。</p>
+          <div id="themePalette" class="theme-grid"></div>
+        </details>
+        <details>
+          <summary>战场与特效配色</summary>
+          <p class="small">
+            可用 #RRGGBBAA 调透明度，地面底色在没有地砖/背景图时显示。
+          </p>
+          <div id="themeRender" class="theme-grid"></div>
+        </details>
+        <details>
+          <summary>主题图片与锚点</summary>
+          <select id="themeSlot" aria-label="主题图片槽位"></select>
+          <div class="theme-preview">
+            <img id="themeAssetPreview" alt="当前槽位图片" />
+            <p id="themeAssetInfo" class="small"></p>
+          </div>
+          <div class="debug-actions">
+            <label class="file-button"
+              >替换主题图片<input
+                id="themeAssetFile"
+                type="file"
+                accept="image/png,image/webp,image/jpeg"
+                hidden /></label
+            ><button id="themeClearAsset">清除此槽位</button>
+          </div>
+          <p class="small">
+            PNG / WebP / JPEG，单图≤4 MiB。整体主题包≤8
+            MiB。下方尺寸/锚点用于战场素材，HUD图片按界面布局缩放。显示倍率不改变碰撞体；飞刀先校准朝向与刀尖锚点。
+          </p>
+          <div id="themeGeometry" class="theme-grid"></div>
+          <label class="theme-line"
+            ><input id="theme-meta-loop" type="checkbox" />循环播放</label
+          >
+          <button id="themeApplyMeta">应用尺寸与锚点</button>
+        </details>
+      </details>
+      <div class="debug-actions">
+        <button id="save" class="accent">保存参数</button
+        ><button id="export">导出 JSON</button
+        ><label class="file-button"
+          >导入 JSON<input
+            id="import"
+            type="file"
+            accept=".json,application/json"
+            hidden /></label
+        ><button id="defaults">恢复默认</button
+        ><button id="applyBoard">应用并重开</button>
+      </div>
+      <button id="openBalanceLab" class="balance-entry">
+        数值平衡工作台 ↗ <small>经验曲线 · 技能成长 · 怪物压力 · 经济</small>
+      </button>
+      <button id="openAudioLab" class="balance-entry">
+        音乐与音效工作台 ↗ <small>音量 · 试听 · 素材替换 · 背景音乐</small>
+      </button>
+      <p id="saveState" class="small" role="status">尚未修改</p>
+      <details id="feelPresets" class="lab-presets" open>
+        <summary class="section-caption">
+          手感预设 <span id="presetName">原味 · 零反弹</span>
+        </summary>
+        <div id="presetButtons" class="preset-buttons"></div>
+        <div class="preset-create">
+          <input
+            id="feelPresetName"
+            maxlength="40"
+            placeholder="新预设名称"
+            aria-label="新手感预设名称"
+          />
+          <button id="saveFeelPreset">保存当前为预设</button>
+        </div>
+        <div class="preset-manage">
+          <button id="undoPresetDelete" hidden>撤销删除预设</button>
+          <button id="restoreBuiltinPresets">恢复内置预设</button>
+        </div>
+        <p class="small">
+          保存当前全部参数；删除不改变当前对局。预设保存在此浏览器，点击预设应用，结构变化会重开。
+        </p>
+      </details>
+      <input
+        id="search"
+        class="search"
+        placeholder="搜索参数，例如：重力、速度、伤害"
+        aria-label="搜索参数"
+      />
+      <div class="gravity-note">
+        延迟重力：需同时启用重力。怪物与墙壁反弹次数都耗尽后开始下坠；初始无反弹则立即生效。
+      </div>
+      <div id="fields"></div>
+      <details class="debug-section">
+        <summary>测试工具与运行信息</summary>
+        <div class="debug-actions">
+          <button id="grantRecall">获得万刃归心</button
+          ><button id="grantPlatform">增加发射台</button
+          ><button id="demoRecall">演示墙刀齐射</button
+          ><button id="step">单步 1/60 秒</button
+          ><button id="testScene">加载碰撞测试场</button
+          ><button id="addXp">增加升级经验</button
+          ><button id="addCoins">增加 20 金币</button>
+        </div>
+        <pre id="telemetry"></pre>
+      </details>
+      <details class="debug-section">
+        <summary>美术资源替换 / 预览</summary>
+        <p class="small">
+          单张快速预览仅本次有效，不写入主题包。要保存图片和锚点，请使用上方主题工作台；重新加载恢复当前主题。
+        </p>
+        <div class="debug-actions">
+          <select id="assetSlot" aria-label="替换素材类型">
+            <option value="enemy">蓝色怪物</option>
+            <option value="enemyOrange">橙色怪物</option>
+            <option value="corpseOrange">橙色战败怪物</option>
+            <option value="floorTile">单格地砖</option>
+            <option value="knife">飞刀（默认朝右）</option>
+            <option value="corpse">死亡怪物</option>
+            <option value="launcher">发射台</option>
+            <option value="launcherDisc">中央圆盘发射台</option>
+            <option value="background">战场背景</option></select
+          ><label class="file-button"
+            >选择图片预览<input
+              id="artFile"
+              type="file"
+              accept="image/png,image/webp,image/svg+xml,image/jpeg"
+              hidden /></label
+          ><button id="reloadArt">重新加载正式素材</button>
+        </div>
+        <p id="artState" class="small"></p>
+      </details>
+    </dialog>
+    <div id="toast" role="status"></div>
+    <script type="module" src="src/main.mjs"></script>
+  </body>
+</html>
