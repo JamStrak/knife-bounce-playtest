@@ -1,4 +1,5 @@
-// Browser-local replacements are independent from saved gameplay parameters.
+import { bundledRelease } from "./bundled-release.mjs";
+// Browser replacements override the frozen release library, without modifying it.
 export const audioSlots = Object.entries({
   music: "背景音乐",
   launch: "飞刀发射",
@@ -25,10 +26,28 @@ export const audioSlots = Object.entries({
 }).map(([key, name]) => ({ key, name }));
 const keys = new Set(audioSlots.map((s) => s.key));
 const assets = new Map(),
+  bundledAssets = new Map(),
+  unreadable = new Set(),
   musicPlayers = new WeakMap();
 let database,
   loading,
+  bundleLoading,
   mutation = Promise.resolve();
+function loadBundledAudio() {
+  return (bundleLoading ||= (async () => {
+    const prepared = new Map();
+    for (const entry of bundledRelease?.audio || []) {
+      const response = await fetch(entry.src);
+      if (!response.ok) throw new Error(`发布音频加载失败：${entry.name}`);
+      const blob = await response.blob();
+      prepared.set(entry.key, { ...entry, blob, buffer: await decode(blob) });
+    }
+    for (const [key, row] of prepared) bundledAssets.set(key, row);
+  })().catch((error) => {
+    bundleLoading = null;
+    throw error;
+  }));
+}
 function openDatabase() {
   if (!database)
     database = new Promise((resolve, reject) => {
@@ -77,6 +96,7 @@ async function write(key, value) {
 export function loadAudioLibrary() {
   if (!loading)
     loading = (async () => {
+      await loadBundledAudio();
       const db = await openDatabase();
       const rows = await new Promise((resolve, reject) => {
         const request = db.transaction("assets").objectStore("assets").getAll();
@@ -90,7 +110,7 @@ export function loadAudioLibrary() {
             try {
               assets.set(row.key, { ...row, buffer: await decode(row.blob) });
             } catch {
-              /* An unreadable legacy file falls back to the built-in cue. */
+              unreadable.add(row.key);
             }
           }),
       );
@@ -116,6 +136,7 @@ export function setAudioAsset(key, file) {
     const row = { key, name: file.name || "自定义音频", blob: file };
     await write(key, row);
     assets.set(key, { ...row, buffer });
+    unreadable.delete(key);
     return audioAssetNames();
   });
 }
@@ -125,16 +146,42 @@ export function removeAudioAsset(key) {
     await loadAudioLibrary();
     await write(key, null);
     assets.delete(key);
+    unreadable.delete(key);
     return audioAssetNames();
   });
 }
 export function audioAssetNames() {
   return Object.fromEntries(
-    [...assets].map(([key, value]) => [key, value.name]),
+    [...new Map([...bundledAssets, ...assets])].map(([key, value]) => [
+      key,
+      value.name,
+    ]),
   );
 }
 export function audioAssetBuffer(key) {
-  return assets.get(key)?.buffer || null;
+  return (assets.get(key) || bundledAssets.get(key))?.buffer || null;
+}
+// Capture the actual active bytes after pending replacements have settled.
+// Unlike playback fallback, export must never silently omit a broken file.
+export function snapshotAudioAssets() {
+  return serialize(async () => {
+    await loadAudioLibrary();
+    if (unreadable.size)
+      throw new Error(
+        `这些音频无法读取，请重新替换后导出：${[...unreadable].join("、")}`,
+      );
+    const rows = [];
+    for (const [key, row] of new Map([...bundledAssets, ...assets])) {
+      const dataUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error(`读取音频失败：${row.name}`));
+        reader.readAsDataURL(row.blob);
+      });
+      rows.push({ key, name: row.name, dataUrl });
+    }
+    return rows.sort((a, b) => a.key.localeCompare(b.key));
+  });
 }
 export function stopMusic(context) {
   const player = context && musicPlayers.get(context);

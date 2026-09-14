@@ -1,4 +1,5 @@
 import { Assets } from "./assets.mjs";
+import { bundledRelease } from "./bundled-release.mjs";
 import { setupArenaEditor } from "./arena-editor.mjs";
 import {
   ThemeSwitcher,
@@ -299,7 +300,7 @@ export async function setupThemeLab(assets, toast) {
     await switcher.apply(
       requested
         ? await builtin(requested)
-        : initial || (await builtin(catalog.default)),
+        : initial || bundledRelease?.theme || (await builtin(catalog.default)),
     );
   } catch (e) {
     toast(`已回退玩具主题：${e.message}`);
@@ -394,7 +395,9 @@ export async function setupThemeLab(assets, toast) {
     run(async () => {
       const saved = localStorage.getItem(THEME_STORAGE);
       await switcher.apply(
-        saved ? JSON.parse(saved) : await builtin(catalog.default),
+        saved
+          ? JSON.parse(saved)
+          : bundledRelease?.theme || (await builtin(catalog.default)),
       );
       sync();
       dirty = false;
@@ -464,6 +467,35 @@ export async function setupThemeLab(assets, toast) {
   });
   $("themeArenaEdit").onclick = () => arenaEditor.open();
   return {
+    snapshot: async () => {
+      if (busy) throw new Error("主题正在切换，请完成后再导出");
+      const t = structuredClone(switcher.current);
+      // Capture loaded entries, including temporary art previews. meta.src may be stale.
+      const entries = { ...assets.entries };
+      t.arena = assets.arena;
+      for (const [key, entry] of Object.entries(entries)) {
+        const source = entry.img.currentSrc || entry.img.src;
+        const response = await fetch(source);
+        if (!response.ok) throw new Error(`图片读取失败：${key}`);
+        const blob = await response.blob();
+        let src;
+        if (/^image\/(png|webp|jpeg)$/.test(blob.type))
+          src = await dataURL(blob);
+        else {
+          const canvas = document.createElement("canvas");
+          canvas.width = entry.img.naturalWidth;
+          canvas.height = entry.img.naturalHeight;
+          canvas.getContext("2d").drawImage(entry.img, 0, 0);
+          src = canvas.toDataURL("image/png");
+        }
+        t.slots[key] = { ...entry.meta, src };
+      }
+      for (const [key, meta] of Object.entries(t.slots))
+        if (meta.src && !entries[key])
+          throw new Error(`主题素材尚未加载：${key}`);
+      if (!t.arena) delete t.arena;
+      return validateTheme(t, { maxBytes: 100 * 1024 * 1024 });
+    },
     openArenaEditor: () => arenaEditor.open(),
     get arenaEditorOpen() {
       return arenaEditor.isOpen;

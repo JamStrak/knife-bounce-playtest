@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
-<script>const shareUrl=new URL(location.href);if(!shareUrl.searchParams.has("mode"))shareUrl.searchParams.set("mode","stages");if(!shareUrl.searchParams.has("theme"))shareUrl.searchParams.set("theme","crystal");history.replaceState(null,"",shareUrl);</script>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
-    <meta name="theme-color" content="#3d9ef2" />
+    <meta name="theme-color" content="#edf8f3" />
     <title>飞刀弹弹乐</title>
     <link rel="icon" href="assets/toy/coin.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
@@ -17,9 +16,172 @@
     <link rel="stylesheet" href="balance-lab.css" />
     <link rel="stylesheet" href="audio-lab.css" />
     <link rel="stylesheet" href="stage-ui.css" />
+    <style>
+      /* Keep the unfinished battlefield covered even before CSS or JS arrives. */
+      html:not([data-game-started]) .workspace {
+        visibility: hidden !important;
+      }
+      #startScreen[hidden] {
+        display: none !important;
+      }
+      #startScreen {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: grid;
+        place-items: center;
+        overflow: auto;
+        color: #19526a;
+        background: #edf8f3;
+        font-family: "Microsoft YaHei", sans-serif;
+      }
+      #startScreen .start-card {
+        width: min(100%, 520px);
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 28px 28px 24px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      #startScreen h1 {
+        margin: 28px 0 8px;
+        font-size: clamp(36px, 10vw, 54px);
+      }
+      #startScreen .start-art {
+        position: relative;
+        width: min(100%, 340px);
+        aspect-ratio: 1;
+        margin: auto;
+      }
+      #startScreen .start-enemy {
+        position: absolute;
+        width: 66%;
+        left: 17%;
+        top: 13%;
+      }
+      #startScreen .start-knife {
+        position: absolute;
+        height: 45%;
+        bottom: 0;
+      }
+      #startScreen .start-knife-left {
+        left: 9%;
+        transform: rotate(32deg);
+      }
+      #startScreen .start-knife-right {
+        right: 9%;
+        transform: rotate(-32deg);
+      }
+      #startScreen .start-footer {
+        width: 100%;
+        margin-top: auto;
+      }
+      #startScreen .start-button {
+        width: 100%;
+        min-height: 62px;
+        border: 2px solid #fff7c8;
+        border-radius: 20px;
+        background: #ffe19a;
+        color: #74501c;
+        font: inherit;
+        font-size: 22px;
+        font-weight: 800;
+      }
+      #startScreen .start-button:disabled {
+        opacity: 0.62;
+        cursor: progress;
+      }
+      #startScreen .start-status {
+        min-height: 24px;
+        font-size: 13px;
+      }
+      #startScreen .start-retry[hidden] {
+        display: none;
+      }
+      #startScreen .start-retry {
+        margin: 8px auto;
+      }
+    </style>
+    <link rel="stylesheet" href="start-screen.css" />
   </head>
   <body>
-    <div class="workspace">
+    <section
+      id="startScreen"
+      aria-labelledby="startTitle"
+      aria-describedby="startStatus"
+      aria-busy="true"
+    >
+      <div class="start-card">
+        <div class="start-edition">
+          <span class="start-edition-dot"></span> 内测版
+          <span class="start-version">v0.42.0</span>
+        </div>
+        <div class="start-heading">
+          <p class="start-kicker">KNIFE PARTY</p>
+          <h1 id="startTitle">飞刀弹弹乐</h1>
+          <p class="start-tagline">瞄准出刀 · 越弹越爽</p>
+        </div>
+        <div class="start-art" aria-hidden="true">
+          <div class="start-orbit"></div>
+          <div class="start-orbit start-orbit-inner"></div>
+          <span class="start-spark start-spark-one">✦</span
+          ><span class="start-spark start-spark-two">✧</span
+          ><span class="start-spark start-spark-three">✦</span>
+          <img
+            class="start-enemy"
+            src="assets/crystal/enemy.png"
+            alt=""
+            width="365"
+            height="384"
+            draggable="false"
+            fetchpriority="high"
+          />
+          <img
+            class="start-knife start-knife-left"
+            src="assets/crystal/knife.png"
+            alt=""
+            width="76"
+            height="332"
+            draggable="false"
+          />
+          <img
+            class="start-knife start-knife-right"
+            src="assets/crystal/knife.png"
+            alt=""
+            width="76"
+            height="332"
+            draggable="false"
+          />
+          <div class="start-art-shadow"></div>
+        </div>
+        <div class="start-footer">
+          <p id="startStatus" class="start-status" role="status">
+            正在准备战场…
+          </p>
+          <button id="startGame" class="start-button" disabled>
+            <span>开始游戏</span
+            ><span class="start-button-arrow" aria-hidden="true">→</span>
+          </button>
+          <button
+            id="retryStartup"
+            class="start-retry"
+            hidden
+            onclick="location.reload()"
+          >
+            重新加载
+          </button>
+          <p class="start-tip">拖动瞄准，松手出刀</p>
+          <noscript
+            ><p class="start-error">
+              请在浏览器中启用 JavaScript，然后重新加载。
+            </p></noscript
+          >
+        </div>
+      </div>
+    </section>
+    <div class="workspace" inert>
       <main class="game-shell" aria-label="游戏区">
         <header class="game-header">
           <div class="brand">
@@ -122,7 +284,7 @@
                 <div class="bottom-meta">
                   <span id="liveStatus">等待你的第一刀</span
                   ><button id="phone">手机试玩 ↗</button
-                  ><span id="physicsBadge">重力关闭</span><span>v0.41.1</span>
+                  ><span id="physicsBadge">重力关闭</span><span>v0.42.0</span>
                 </div>
               </div>
             </details>
@@ -358,6 +520,24 @@
       </details>
     </dialog>
     <div id="toast" role="status"></div>
-    <script type="module" src="src/main.mjs"></script>
+    <script>
+      window.knifeStartupFail = function () {
+        if (document.documentElement.hasAttribute("data-game-started")) return;
+        document
+          .getElementById("startScreen")
+          .setAttribute("aria-busy", "false");
+        document.getElementById("startStatus").textContent =
+          "加载未完成，请检查网络后重新加载。";
+        document.getElementById("retryStartup").hidden = false;
+      };
+      window.knifeStartupTimer = setTimeout(window.knifeStartupFail, 45000);
+    </script>
+    <script type="module">
+      import("./src/main.mjs").catch((error) => {
+        console.error("游戏启动失败", error);
+        clearTimeout(window.knifeStartupTimer);
+        window.knifeStartupFail();
+      });
+    </script>
   </body>
 </html>

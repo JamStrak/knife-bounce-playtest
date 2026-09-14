@@ -152,11 +152,11 @@ export function validImageSource(src) {
       /^data:image\/(png|webp|jpeg);base64,[A-Za-z0-9+/]+=*$/i.test(src))
   );
 }
-export function validateTheme(input) {
+export function validateTheme(input, { maxBytes = MAX_THEME_BYTES } = {}) {
   if (!object(input) || input.schemaVersion !== 1)
     throw new Error("主题包版本不支持，需要 schemaVersion: 1");
-  if (JSON.stringify(input).length > MAX_THEME_BYTES)
-    throw new Error("主题包超过 8 MiB，请先压缩图片");
+  if (JSON.stringify(input).length > maxBytes)
+    throw new Error(`主题包超过 ${maxBytes / 1024 / 1024} MiB，请先压缩图片`);
   for (const key of Object.keys(input))
     if (
       ![

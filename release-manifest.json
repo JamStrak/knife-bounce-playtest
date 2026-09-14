@@ -1,0 +1,734 @@
+{
+  "kind": "knife-playtest-manifest",
+  "schemaVersion": 1,
+  "release": {
+    "id": "playtest-0.42.0-start",
+    "version": "0.42.0",
+    "createdAt": "2026-09-14T06:49:55.811Z"
+  },
+  "source": {
+    "version": "0.42.0",
+    "commit": "81f87845dfebe8cabce361cfd3a5f40966d1380e",
+    "dirty": false
+  },
+  "packageSHA256": "c4c9591c25408481971733db9814a2faf23a3fddf2c7b14e18eaa03f312d2217",
+  "config": {
+    "count": 541,
+    "speed": 1800,
+    "gameMode": "stages",
+    "sha256": "3c3974be613f10ebdbcb78cc9105fef52485fb38b63973e43fa02e5303114877"
+  },
+  "theme": {
+    "id": "crystal",
+    "name": "晶糖乐园",
+    "images": [
+      {
+        "key": "background",
+        "src": "assets/release-theme/background.webp",
+        "mime": "image/webp",
+        "bytes": 63884,
+        "sha256": "ea9a3c8da41b337b9618ee48eff2b801c2db81a42cdecf794c2552571de6b084"
+      },
+      {
+        "key": "bombExplosion",
+        "src": "assets/release-theme/bombExplosion.png",
+        "mime": "image/png",
+        "bytes": 101319,
+        "sha256": "6e83d5bf11ddb263bf82469f619500ab114acc6f8b7a8fa8d69de81f80881219"
+      },
+      {
+        "key": "bombExplosion02",
+        "src": "assets/release-theme/bombExplosion02.png",
+        "mime": "image/png",
+        "bytes": 1257101,
+        "sha256": "768f8243fb69bc772c7c5669284658de1785c6538b76c92d8db465e06ffefec2"
+      },
+      {
+        "key": "corpse",
+        "src": "assets/release-theme/corpse.png",
+        "mime": "image/png",
+        "bytes": 312376,
+        "sha256": "214c4a50a3163b0edeb0a1994e3d2d8089401aa5a51b4baec6c5f5428ac6f5cc"
+      },
+      {
+        "key": "corpseFast",
+        "src": "assets/release-theme/corpseFast.png",
+        "mime": "image/png",
+        "bytes": 167419,
+        "sha256": "47ad69544c3eb361a8af17a7bf1bd593b90ba97892ce6a3033cdd5c88733b130"
+      },
+      {
+        "key": "corpseUltraFast",
+        "src": "assets/release-theme/corpseUltraFast.png",
+        "mime": "image/png",
+        "bytes": 87242,
+        "sha256": "8273839c3239a879a9d915440ed708affc2433700dbba8647cf06b2a7ef10720"
+      },
+      {
+        "key": "enemy",
+        "src": "assets/release-theme/enemy.png",
+        "mime": "image/png",
+        "bytes": 266212,
+        "sha256": "7c113cc4851c22e647dcfd28aa78eeecc7430ca2cad830309d0dda8ee9b84fa2"
+      },
+      {
+        "key": "enemyBomb",
+        "src": "assets/release-theme/enemyBomb.png",
+        "mime": "image/png",
+        "bytes": 240032,
+        "sha256": "5f48263ee058f199e34de75b2484693caec4cac61363387b03ceb52b9dd6ef08"
+      },
+      {
+        "key": "enemyFast",
+        "src": "assets/release-theme/enemyFast.png",
+        "mime": "image/png",
+        "bytes": 135425,
+        "sha256": "8a6b5658ef00de20dd637a45483220cfe575b91894ddedd58d56773c5aed53ed"
+      },
+      {
+        "key": "enemyUltraFast",
+        "src": "assets/release-theme/enemyUltraFast.png",
+        "mime": "image/png",
+        "bytes": 2613307,
+        "sha256": "d4ab7f1eeac25a9843ff851ce918d51a9bc722b22a4e9a1df91439b9485bb70c"
+      },
+      {
+        "key": "knife",
+        "src": "assets/release-theme/knife.png",
+        "mime": "image/png",
+        "bytes": 55663,
+        "sha256": "5278ff3ad3d47b34dc2755060ca3979ef6ed8e9fb9d9da9eb65ffad79dfd0e3e"
+      },
+      {
+        "key": "launcher",
+        "src": "assets/release-theme/launcher.png",
+        "mime": "image/png",
+        "bytes": 167583,
+        "sha256": "c962112bac58bc37b8d41d723cc867601041e3fc959fa61b84166ac72f8ed1cb"
+      },
+      {
+        "key": "uiBrand",
+        "src": "assets/release-theme/uiBrand.png",
+        "mime": "image/png",
+        "bytes": 55663,
+        "sha256": "5278ff3ad3d47b34dc2755060ca3979ef6ed8e9fb9d9da9eb65ffad79dfd0e3e"
+      },
+      {
+        "key": "uiCoin",
+        "src": "assets/release-theme/uiCoin.png",
+        "mime": "image/png",
+        "bytes": 120318,
+        "sha256": "38d4215b99322bcc0d692e9e6accee3f59247ec2123b10e2cb1100bcb4ab9cd5"
+      },
+      {
+        "key": "uiHeart",
+        "src": "assets/release-theme/uiHeart.png",
+        "mime": "image/png",
+        "bytes": 101597,
+        "sha256": "6b8e2ecd8295e61ffd9ceaec5ed4111ed3eba728fba92bc8088163142db9293b"
+      },
+      {
+        "key": "uiPause",
+        "src": "assets/release-theme/uiPause.png",
+        "mime": "image/png",
+        "bytes": 51140,
+        "sha256": "c78a3845a7b5809bf38c8525bc25c2e788c565d6a0324d868efc11d565c97212"
+      },
+      {
+        "key": "uiXp",
+        "src": "assets/release-theme/uiXp.png",
+        "mime": "image/png",
+        "bytes": 121219,
+        "sha256": "f97edf8a7aa80370b740418af8ef0ca03ba5291f1e9b1cd5646b31877883d928"
+      }
+    ]
+  },
+  "audio": [],
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/corpse.svg",
+      "bytes": 384,
+      "sha256": "022290d7554e0222970ad5aeafbf7a3d252020b3124807f2189d9f3650b3f321"
+    },
+    {
+      "path": "assets/crystal/arena.webp",
+      "bytes": 63884,
+      "sha256": "ea9a3c8da41b337b9618ee48eff2b801c2db81a42cdecf794c2552571de6b084"
+    },
+    {
+      "path": "assets/crystal/bomb.png",
+      "bytes": 240032,
+      "sha256": "5f48263ee058f199e34de75b2484693caec4cac61363387b03ceb52b9dd6ef08"
+    },
+    {
+      "path": "assets/crystal/coin.png",
+      "bytes": 120318,
+      "sha256": "38d4215b99322bcc0d692e9e6accee3f59247ec2123b10e2cb1100bcb4ab9cd5"
+    },
+    {
+      "path": "assets/crystal/corpse.png",
+      "bytes": 312376,
+      "sha256": "214c4a50a3163b0edeb0a1994e3d2d8089401aa5a51b4baec6c5f5428ac6f5cc"
+    },
+    {
+      "path": "assets/crystal/enemy.png",
+      "bytes": 266212,
+      "sha256": "7c113cc4851c22e647dcfd28aa78eeecc7430ca2cad830309d0dda8ee9b84fa2"
+    },
+    {
+      "path": "assets/crystal/fast-corpse.png",
+      "bytes": 167419,
+      "sha256": "47ad69544c3eb361a8af17a7bf1bd593b90ba97892ce6a3033cdd5c88733b130"
+    },
+    {
+      "path": "assets/crystal/fast.png",
+      "bytes": 135425,
+      "sha256": "8a6b5658ef00de20dd637a45483220cfe575b91894ddedd58d56773c5aed53ed"
+    },
+    {
+      "path": "assets/crystal/heart.png",
+      "bytes": 101597,
+      "sha256": "6b8e2ecd8295e61ffd9ceaec5ed4111ed3eba728fba92bc8088163142db9293b"
+    },
+    {
+      "path": "assets/crystal/knife.png",
+      "bytes": 55663,
+      "sha256": "5278ff3ad3d47b34dc2755060ca3979ef6ed8e9fb9d9da9eb65ffad79dfd0e3e"
+    },
+    {
+      "path": "assets/crystal/launcher.png",
+      "bytes": 167583,
+      "sha256": "c962112bac58bc37b8d41d723cc867601041e3fc959fa61b84166ac72f8ed1cb"
+    },
+    {
+      "path": "assets/crystal/pause.png",
+      "bytes": 51140,
+      "sha256": "c78a3845a7b5809bf38c8525bc25c2e788c565d6a0324d868efc11d565c97212"
+    },
+    {
+      "path": "assets/crystal/xp.png",
+      "bytes": 121219,
+      "sha256": "f97edf8a7aa80370b740418af8ef0ca03ba5291f1e9b1cd5646b31877883d928"
+    },
+    {
+      "path": "assets/effects/bomb-burst.png",
+      "bytes": 101319,
+      "sha256": "6e83d5bf11ddb263bf82469f619500ab114acc6f8b7a8fa8d69de81f80881219"
+    },
+    {
+      "path": "assets/effects/bomb02.png",
+      "bytes": 1257101,
+      "sha256": "768f8243fb69bc772c7c5669284658de1785c6538b76c92d8db465e06ffefec2"
+    },
+    {
+      "path": "assets/enemy.svg",
+      "bytes": 695,
+      "sha256": "d7927d99270e3f7585e3cac7a48a48bf401f842481646ea84cb70db191d24805"
+    },
+    {
+      "path": "assets/knife.svg",
+      "bytes": 448,
+      "sha256": "6cf121133b095703679b3c5f766ea82f36bd006ed0fe2d20cdb3cd101bcf0e11"
+    },
+    {
+      "path": "assets/manifest.json",
+      "bytes": 3167,
+      "sha256": "3b76470a03a4ffef8036cdf46f453729571d99b9af3ba89100d4ec02ef3b54fd"
+    },
+    {
+      "path": "assets/release-theme/background.webp",
+      "bytes": 63884,
+      "sha256": "ea9a3c8da41b337b9618ee48eff2b801c2db81a42cdecf794c2552571de6b084"
+    },
+    {
+      "path": "assets/release-theme/bombExplosion.png",
+      "bytes": 101319,
+      "sha256": "6e83d5bf11ddb263bf82469f619500ab114acc6f8b7a8fa8d69de81f80881219"
+    },
+    {
+      "path": "assets/release-theme/bombExplosion02.png",
+      "bytes": 1257101,
+      "sha256": "768f8243fb69bc772c7c5669284658de1785c6538b76c92d8db465e06ffefec2"
+    },
+    {
+      "path": "assets/release-theme/corpse.png",
+      "bytes": 312376,
+      "sha256": "214c4a50a3163b0edeb0a1994e3d2d8089401aa5a51b4baec6c5f5428ac6f5cc"
+    },
+    {
+      "path": "assets/release-theme/corpseFast.png",
+      "bytes": 167419,
+      "sha256": "47ad69544c3eb361a8af17a7bf1bd593b90ba97892ce6a3033cdd5c88733b130"
+    },
+    {
+      "path": "assets/release-theme/corpseUltraFast.png",
+      "bytes": 87242,
+      "sha256": "8273839c3239a879a9d915440ed708affc2433700dbba8647cf06b2a7ef10720"
+    },
+    {
+      "path": "assets/release-theme/enemy.png",
+      "bytes": 266212,
+      "sha256": "7c113cc4851c22e647dcfd28aa78eeecc7430ca2cad830309d0dda8ee9b84fa2"
+    },
+    {
+      "path": "assets/release-theme/enemyBomb.png",
+      "bytes": 240032,
+      "sha256": "5f48263ee058f199e34de75b2484693caec4cac61363387b03ceb52b9dd6ef08"
+    },
+    {
+      "path": "assets/release-theme/enemyFast.png",
+      "bytes": 135425,
+      "sha256": "8a6b5658ef00de20dd637a45483220cfe575b91894ddedd58d56773c5aed53ed"
+    },
+    {
+      "path": "assets/release-theme/enemyUltraFast.png",
+      "bytes": 2613307,
+      "sha256": "d4ab7f1eeac25a9843ff851ce918d51a9bc722b22a4e9a1df91439b9485bb70c"
+    },
+    {
+      "path": "assets/release-theme/knife.png",
+      "bytes": 55663,
+      "sha256": "5278ff3ad3d47b34dc2755060ca3979ef6ed8e9fb9d9da9eb65ffad79dfd0e3e"
+    },
+    {
+      "path": "assets/release-theme/launcher.png",
+      "bytes": 167583,
+      "sha256": "c962112bac58bc37b8d41d723cc867601041e3fc959fa61b84166ac72f8ed1cb"
+    },
+    {
+      "path": "assets/release-theme/uiBrand.png",
+      "bytes": 55663,
+      "sha256": "5278ff3ad3d47b34dc2755060ca3979ef6ed8e9fb9d9da9eb65ffad79dfd0e3e"
+    },
+    {
+      "path": "assets/release-theme/uiCoin.png",
+      "bytes": 120318,
+      "sha256": "38d4215b99322bcc0d692e9e6accee3f59247ec2123b10e2cb1100bcb4ab9cd5"
+    },
+    {
+      "path": "assets/release-theme/uiHeart.png",
+      "bytes": 101597,
+      "sha256": "6b8e2ecd8295e61ffd9ceaec5ed4111ed3eba728fba92bc8088163142db9293b"
+    },
+    {
+      "path": "assets/release-theme/uiPause.png",
+      "bytes": 51140,
+      "sha256": "c78a3845a7b5809bf38c8525bc25c2e788c565d6a0324d868efc11d565c97212"
+    },
+    {
+      "path": "assets/release-theme/uiXp.png",
+      "bytes": 121219,
+      "sha256": "f97edf8a7aa80370b740418af8ef0ca03ba5291f1e9b1cd5646b31877883d928"
+    },
+    {
+      "path": "assets/space/squid-atlas.json",
+      "bytes": 10984,
+      "sha256": "92de8bd49ab2cfcc575f09d2d19e5189ff8ae8edfbd94e0144aac52da2713c92"
+    },
+    {
+      "path": "assets/space/squid-corpse.png",
+      "bytes": 87242,
+      "sha256": "8273839c3239a879a9d915440ed708affc2433700dbba8647cf06b2a7ef10720"
+    },
+    {
+      "path": "assets/space/squid-idle.png",
+      "bytes": 2613307,
+      "sha256": "d4ab7f1eeac25a9843ff851ce918d51a9bc722b22a4e9a1df91439b9485bb70c"
+    },
+    {
+      "path": "assets/themes/catalog.json",
+      "bytes": 394,
+      "sha256": "dd77237130cbe227a209bf71da03ee95db4ead27a6224ac87e1fbd3f21a9a211"
+    },
+    {
+      "path": "assets/themes/classic.json",
+      "bytes": 2499,
+      "sha256": "b0048c962bc8f7ee95bbebc435bb38ad58e1b58d2ac9075395a96e254a564c5c"
+    },
+    {
+      "path": "assets/themes/crystal.json",
+      "bytes": 2722,
+      "sha256": "7505fe05fa729870299102014e890b3a9659eefdd1083a120cd5e64ac16fd296"
+    },
+    {
+      "path": "assets/themes/toy.json",
+      "bytes": 3819,
+      "sha256": "1f7288205209e0805bb43e31bd743fa26c5880eb9e1c5540ea5c2c6f96b0ab34"
+    },
+    {
+      "path": "assets/toy/button.png",
+      "bytes": 38251,
+      "sha256": "9f6343def7a25768352dc32a1005c1ea9e9c1806b8f2d3052df12e579d0b616f"
+    },
+    {
+      "path": "assets/toy/coin.png",
+      "bytes": 13074,
+      "sha256": "597c2a530fbe835e5cccdc6fd5c8a4d7ac24319fba96fbb013b3d78b26c726c3"
+    },
+    {
+      "path": "assets/toy/corpse-blue.png",
+      "bytes": 147435,
+      "sha256": "18b19136c8d83000f3549a4369960097d963397ce07ac8544dfad482f20819c1"
+    },
+    {
+      "path": "assets/toy/corpse-orange.png",
+      "bytes": 138960,
+      "sha256": "e50bb5abb9bedc1d405633786c8900634c5dfad215b0b682b1bf66bba1f4775f"
+    },
+    {
+      "path": "assets/toy/crown.png",
+      "bytes": 10708,
+      "sha256": "66e9a5e1acafb33a4b42e112ad13f7b899646bb0dc9157679565fc49f48567e6"
+    },
+    {
+      "path": "assets/toy/enemy-blue.png",
+      "bytes": 147601,
+      "sha256": "e740a166b8fe761d7e3ccc8e261864ff56a4f21467eb23e3b762aa0d9254f5c4"
+    },
+    {
+      "path": "assets/toy/enemy-orange.png",
+      "bytes": 122592,
+      "sha256": "27f0f1d0416c2cec038a8d6732d4015d88d2bee1945a9afcfdaaa2b95ffb6710"
+    },
+    {
+      "path": "assets/toy/floor-tile.webp",
+      "bytes": 1460,
+      "sha256": "4f636fc2920b81b3ceb8bcc8d2140b0c385bdcbd8e6321aabbd2725a21f50719"
+    },
+    {
+      "path": "assets/toy/heart.png",
+      "bytes": 10296,
+      "sha256": "eecfc420f1f1245f6a7cc7beade1b746a5886d3f636781c72ede78e94b2798d8"
+    },
+    {
+      "path": "assets/toy/knife.png",
+      "bytes": 33950,
+      "sha256": "83d17f4bc20d3e0e211e6d324c160c1352ca067956e2e1f7b06505be0fa470c7"
+    },
+    {
+      "path": "assets/toy/launcher.png",
+      "bytes": 64892,
+      "sha256": "2d1f91d814e4b43ec7d4ea37f332ccb144a975e8a2600807c17c2e3ceb883206"
+    },
+    {
+      "path": "assets/toy/pause.png",
+      "bytes": 15140,
+      "sha256": "7594ae779854bae0bb7c16dcff2ddb45ae4cfd007f382d792592b248fca10075"
+    },
+    {
+      "path": "assets/toy/xp-icon.png",
+      "bytes": 14304,
+      "sha256": "4160751c6e94db9b31338d7bc4d75f144ae4c2a4d29d2b282e0f44c460e9ebbc"
+    },
+    {
+      "path": "assets/toy/xp-track.png",
+      "bytes": 76194,
+      "sha256": "4f8301221e9772efee94cc9ffa304c750b5f2d3987332b2df4a0a2a3288a23eb"
+    },
+    {
+      "path": "audio-lab.css",
+      "bytes": 1929,
+      "sha256": "bfc5f89c935906ac584d398a551000cf082abe7a3a9ba08c52d3b6b70013f545"
+    },
+    {
+      "path": "balance-lab.css",
+      "bytes": 12329,
+      "sha256": "7b4ccc6bf3b141731bb53910f4560dd38d2a16cf0056c25d40c1fd4418bc47cc"
+    },
+    {
+      "path": "index.html",
+      "bytes": 20868,
+      "sha256": "d845e3079c5a8d7c0dd45e08c46ed06fe51f2779baa83272ae0970d625769395"
+    },
+    {
+      "path": "mask-editor.css",
+      "bytes": 2731,
+      "sha256": "effb60c18ebde8ae142a4a801150263a7d519a191eedd2bf73ff377486059dab"
+    },
+    {
+      "path": "release-lab.css",
+      "bytes": 886,
+      "sha256": "c40ae0f84d02f106504567c634529c7e573f56423089b9a575a32cb2ac92c68e"
+    },
+    {
+      "path": "src/aim-guide.mjs",
+      "bytes": 1722,
+      "sha256": "b20d4dc52f5993806a34ccbe905c0ef3415c4071d003419b97f121e91924f2f1"
+    },
+    {
+      "path": "src/arena-editor.mjs",
+      "bytes": 9858,
+      "sha256": "605ce1559067deceb38397b78d2d4b9d5b8a066055c25d2ede333583c65099d3"
+    },
+    {
+      "path": "src/arena-layout.mjs",
+      "bytes": 1590,
+      "sha256": "11d13c74b5dac1ac9cab124b78b3a557983fe7080d971321a28cfef017a657ae"
+    },
+    {
+      "path": "src/arena-resize.mjs",
+      "bytes": 2863,
+      "sha256": "a431a08c2d9cac3305a92126bea1f6533da570cc892eea65ee2dbf88bad1e4f9"
+    },
+    {
+      "path": "src/assets.mjs",
+      "bytes": 3016,
+      "sha256": "9ccfaec86adda0899d747421b27c7144e602ddb83e09acaab7dbfa3e6af52c88"
+    },
+    {
+      "path": "src/attachment-contact.mjs",
+      "bytes": 4475,
+      "sha256": "177660853687ea68f7bbc14b0e191c6b93247ad2c0216214a552dcbf566a18c0"
+    },
+    {
+      "path": "src/audio-assets.mjs",
+      "bytes": 8022,
+      "sha256": "f294c111a3d377209d166e0704a8fa2f8240381145862fb53e2cb8b70baa1c3b"
+    },
+    {
+      "path": "src/audio-lab.mjs",
+      "bytes": 8575,
+      "sha256": "d9b7a130232fdbe39856d69d316d36c5e642eff0dc7e074d66eec55000ad02f3"
+    },
+    {
+      "path": "src/balance-catalog.mjs",
+      "bytes": 3256,
+      "sha256": "0393a74b21eb4518cd8fffb122d8205844953a896b7d6b3896418b3c2ca6cb02"
+    },
+    {
+      "path": "src/balance-lab.mjs",
+      "bytes": 56147,
+      "sha256": "17592b0c8e70322e92f33c1936180cdc87b3e12492ed2e73bfa6885c3823179c"
+    },
+    {
+      "path": "src/balance-model.mjs",
+      "bytes": 6029,
+      "sha256": "9b605a862d58cf851df8bdeed4e60a21c4b8a89c024c2321d6f114c23b3c3a87"
+    },
+    {
+      "path": "src/bundled-release.mjs",
+      "bytes": 4631,
+      "sha256": "fde8f5b2a458f8bfdb49a9648626b7fe4c5701379449a0202258c55e65014f31"
+    },
+    {
+      "path": "src/campaign-lab.mjs",
+      "bytes": 4317,
+      "sha256": "b3f43f148e7b3c5f3b223fdb4981a2479cb583cdc6a61a72a371ce1b1dce138d"
+    },
+    {
+      "path": "src/campaign-model.mjs",
+      "bytes": 4543,
+      "sha256": "f63cd0bf282dbc722053956a72cfa6028b284c2b45f27ce29086d61431152d26"
+    },
+    {
+      "path": "src/combat-audio.mjs",
+      "bytes": 10527,
+      "sha256": "378c59d0bbf528413333ce11c9a908ac6c2d57b8b4f10ed9ae4d0538b73d0d31"
+    },
+    {
+      "path": "src/combat-feedback.mjs",
+      "bytes": 13531,
+      "sha256": "439afedc7532168a28c79a0db632497d36c44ab40a11c711e0308c927e67351e"
+    },
+    {
+      "path": "src/combo-rewards.mjs",
+      "bytes": 1629,
+      "sha256": "6ae95de5ea182ec2f938736404b05abb9642d6d9d84bd7bf2a6d9c2aacf9a51c"
+    },
+    {
+      "path": "src/config.mjs",
+      "bytes": 32395,
+      "sha256": "208501f39e0fabc1a37d7d0c2d66d45ce761d7c287bcbd9468d489756d4fbb28"
+    },
+    {
+      "path": "src/core.mjs",
+      "bytes": 38061,
+      "sha256": "631a2c588e1ac01752d65cb33859b24618f3be84877af17de021ffd2545e618c"
+    },
+    {
+      "path": "src/corpse-physics.mjs",
+      "bytes": 3975,
+      "sha256": "1419ed41703c54d2d04eaf50be9a1998d4acbe1d0e40fc76857735d1ecf881a2"
+    },
+    {
+      "path": "src/entity-effects.mjs",
+      "bytes": 4449,
+      "sha256": "ea14580e347503ba48e4137be316766290c0fb2d632d3402055328cfe30f86a5"
+    },
+    {
+      "path": "src/feedback-schema.mjs",
+      "bytes": 2080,
+      "sha256": "9298a643e267d635abb6661fea70e1d9325af0001fa7c709800011a24b20ca8e"
+    },
+    {
+      "path": "src/field-effects.mjs",
+      "bytes": 3409,
+      "sha256": "0cf33c07ab9553f81ad097df57610cdea3c49a4d9290eab1ee42ac2948d4ca1e"
+    },
+    {
+      "path": "src/field-rules.mjs",
+      "bytes": 1331,
+      "sha256": "92bfdca8a856c51ef51232d441f2d5d5aa0190ec1c0f7fb7163349192bca5341"
+    },
+    {
+      "path": "src/knife-3d.mjs",
+      "bytes": 8104,
+      "sha256": "ecb85c9a547228c7012c47ea32d569ebdcf1e6286e7566ffd22967060c343ebc"
+    },
+    {
+      "path": "src/knife-mask.mjs",
+      "bytes": 1985,
+      "sha256": "5673498c0c7804e22fd6e7b0eaed64bf104c4ede5b0df6a126e003526ac35a7f"
+    },
+    {
+      "path": "src/knife-mesh.mjs",
+      "bytes": 3839,
+      "sha256": "8b75cec738ac85ead9f9447cdc7e01d9da01298676538f0f95640f53d3fa618f"
+    },
+    {
+      "path": "src/knife-motion.mjs",
+      "bytes": 877,
+      "sha256": "44f78955c63ed85b33f884794b0bfbd96276ea39ac2e247eca407bbe76ad9877"
+    },
+    {
+      "path": "src/launcher-layout.mjs",
+      "bytes": 1206,
+      "sha256": "2e3ad993b8b71d0fd67debd3b144833bf0a28aaf0ea35239e1e68921d447a200"
+    },
+    {
+      "path": "src/main.mjs",
+      "bytes": 52317,
+      "sha256": "5283c300c90c1db90db0d59b4aeecef97b6c5e15285a0cfa1ba8468ef6763ab3"
+    },
+    {
+      "path": "src/mask-editor.mjs",
+      "bytes": 13937,
+      "sha256": "33331bf1cdc708c15f390db9da99f1b691ba288fa6ca9763f9604352e8d5dcb9"
+    },
+    {
+      "path": "src/official-config.mjs",
+      "bytes": 15066,
+      "sha256": "c695daa2f6b0316e18bad14bd97aef2845959dc1d6c0ea666acb33ed086d67cb"
+    },
+    {
+      "path": "src/pickup-motion.mjs",
+      "bytes": 2715,
+      "sha256": "b1ac871c14cfc4b48cba21678e5c6f526be1482337aefb3818e0c70afbba1f36"
+    },
+    {
+      "path": "src/preset-library.mjs",
+      "bytes": 5351,
+      "sha256": "41df2bdc497f54b71df682c5d6c3e7f3864f065a1c7c29436036eaf1e53cd5ba"
+    },
+    {
+      "path": "src/release-lab.mjs",
+      "bytes": 5835,
+      "sha256": "7210c36b98c7df9cccb47ec95f814012296b0f2ff773bea3cefac7698d6afd83"
+    },
+    {
+      "path": "src/release-package.mjs",
+      "bytes": 8000,
+      "sha256": "c672b07fb197435cb9b440632618c95532f4f373ac8c8b9c42aff86a02b4047f"
+    },
+    {
+      "path": "src/render.mjs",
+      "bytes": 46075,
+      "sha256": "10c01d489e035aaffa0290a52aec83ee54a2db1cfa186e44a12ad382567f4d5e"
+    },
+    {
+      "path": "src/shop-ui.mjs",
+      "bytes": 3308,
+      "sha256": "a6ed88acc6a03c3f28bae0f541159f1bf320f957e92549520d0ed9ae43f0b6bc"
+    },
+    {
+      "path": "src/shop.mjs",
+      "bytes": 2355,
+      "sha256": "01b67739bc19e19bac48e3beee38c3d2daa49161506446514ea3e69ceb421932"
+    },
+    {
+      "path": "src/soft-dent.mjs",
+      "bytes": 4431,
+      "sha256": "b7b5d4e090a4166e796be5a20360e324e3d7bf87c190ee422509341852f0187a"
+    },
+    {
+      "path": "src/stage-mode.mjs",
+      "bytes": 13455,
+      "sha256": "3882b48b9140a07be14b4c01f4804d2c5a1dc473a1084d82faf377179654a037"
+    },
+    {
+      "path": "src/stage-presentation.mjs",
+      "bytes": 19359,
+      "sha256": "9d36d9ba2862c23a8ec03a01b1fb18ac29d3869eda48179b57a207f8d8bdc40d"
+    },
+    {
+      "path": "src/stage-pressure.mjs",
+      "bytes": 3253,
+      "sha256": "f0e237258a0b268a63b415f50ee22871b107a2491d7cbad8a125239264989f49"
+    },
+    {
+      "path": "src/stage-results.mjs",
+      "bytes": 1885,
+      "sha256": "e83b4c522a95edc1e1a977591d36ea1b81e8913de6612fdc85bbba6efa0b0ab4"
+    },
+    {
+      "path": "src/stage-schema.mjs",
+      "bytes": 11924,
+      "sha256": "a65bbdc8d5de54c92b7dc670fb14245d3bcd6e9a1571fb6b24db1f4ae20d9c4c"
+    },
+    {
+      "path": "src/stage-ui.mjs",
+      "bytes": 3477,
+      "sha256": "9e27dbb4ff39d25c5766f6da94c44e09f4e99596df4adce8010db6aec71bcb16"
+    },
+    {
+      "path": "src/start-screen.mjs",
+      "bytes": 1874,
+      "sha256": "06ce2d0d026902332992753eada107769586ba50a361d430895d370c4274b62b"
+    },
+    {
+      "path": "src/theme-lab.mjs",
+      "bytes": 17847,
+      "sha256": "4ed564112965cbf8f46a479bca1995e879e6b14b5dea0aec6c5d5151bdd294ae"
+    },
+    {
+      "path": "src/themes.mjs",
+      "bytes": 8991,
+      "sha256": "e9b70e18a88ec59c6f82acaa0276ba63e3bdfd362e1076b3fdbb364722670f8c"
+    },
+    {
+      "path": "src/upgrade-feedback.mjs",
+      "bytes": 1733,
+      "sha256": "2ba97b7fe3c0e245d5f67b85e77da239301911d3988b195a5de0423b93fe2889"
+    },
+    {
+      "path": "stage-ui.css",
+      "bytes": 25348,
+      "sha256": "d94c9f840b3f85b8181b483397b176deba2442c29763f1dbfb5a1b25b6e8cd20"
+    },
+    {
+      "path": "start-screen.css",
+      "bytes": 6671,
+      "sha256": "3e5a04e3089b7e07f3e023fc358d0cca4ba22429165140cc4718fda68a7a95dc"
+    },
+    {
+      "path": "style.css",
+      "bytes": 13865,
+      "sha256": "705fe67d1233f68226d5d8c286dfc4d9f032143ff251e979852fbe52a6dd2e5f"
+    },
+    {
+      "path": "theme-system.css",
+      "bytes": 21064,
+      "sha256": "8b8c84eecb66531d32e3ed0997e026c2633143fea25e90603dcad447ae9def20"
+    },
+    {
+      "path": "toy-theme.css",
+      "bytes": 8935,
+      "sha256": "b583eddb79e8f2c1a2316e71e578e884d17536eef69856f9ef8719bfffc8ceb0"
+    }
+  ]
+}

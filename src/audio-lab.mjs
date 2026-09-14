@@ -25,7 +25,7 @@ export function setupAudioLab({ getConfig, apply, getAudio, onOpen, onClose }) {
   const root = document.createElement("dialog");
   root.id = "audioLab";
   root.className = "audio-lab";
-  root.innerHTML = `<header><div><small>AUDIO LAB</small><h2>音乐与音效工作台</h2><p>音量即时生效；替换文件自动保存在本机浏览器。</p></div><button id="closeAudioLab">关闭</button></header><div class="audio-body"><section><h3>音量与播放规则</h3><div id="audioFields"></div></section><section><h3>音频素材</h3><label>选择声音<select id="audioSlot"></select></label><p id="audioAssetName"></p><div class="audio-actions"><button id="audioAudition">试听</button><button id="audioStop">停止试听</button><label class="audio-file">替换文件<input id="audioFile" type="file" accept="audio/*,.wav,.mp3,.ogg,.m4a,.webm" /></label><button id="audioRemove">恢复默认声音</button></div><p>音效未替换时使用原合成声音；背景音乐未导入时保持静默。音乐随游戏暂停，试听可在本面板单独播放。音频文件独立保存，参数JSON不包含素材。</p></section></div><footer><span id="audioStatus" role="status"></span><button id="audioExport">导出音频参数</button><label class="audio-file">导入参数<input id="audioImport" type="file" accept=".json" /></label><button id="audioSave">保存音频参数</button></footer>`;
+  root.innerHTML = `<header><div><small>AUDIO LAB</small><h2>音乐与音效工作台</h2><p>音量即时生效；替换文件自动保存在本机浏览器。</p></div><button id="closeAudioLab">关闭</button></header><div class="audio-body"><section><h3>音量与播放规则</h3><div id="audioFields"></div></section><section><h3>音频素材</h3><label>选择声音<select id="audioSlot"></select></label><p id="audioAssetName"></p><div class="audio-actions"><button id="audioAudition">试听</button><button id="audioStop">停止试听</button><label class="audio-file">替换文件<input id="audioFile" type="file" accept="audio/*,.wav,.mp3,.ogg,.m4a,.webm" /></label><button id="audioRemove">恢复默认声音</button></div><p>未替换的音效使用发布包内声音或原合成声音；无背景音乐素材时保持静默。音乐随游戏暂停，试听可在本面板单独播放。音频参数 JSON 只含数值；分享已替换的音频请导出完整发布包。</p></section></div><footer><span id="audioStatus" role="status"></span><button id="audioExportFull">完整发布包（含音频）</button><button id="audioExport">导出音频参数</button><label class="audio-file">导入参数<input id="audioImport" type="file" accept=".json" /></label><button id="audioSave">保存音频参数</button></footer>`;
   document.body.append(root);
   const $ = (id) => root.querySelector("#" + id);
   const status = (t) => ($("audioStatus").textContent = t);
@@ -175,6 +175,10 @@ export function setupAudioLab({ getConfig, apply, getAudio, onOpen, onClose }) {
     } catch (e) {
       status("保存失败：" + e.message);
     }
+  };
+  $("audioExportFull").onclick = () => {
+    root.close();
+    document.getElementById("openReleaseLab").click();
   };
   $("audioExport").onclick = () => {
     const url = URL.createObjectURL(

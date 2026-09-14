@@ -1,6 +1,8 @@
 import { officialConfig } from "./official-config.mjs";
+import { setupReleaseLab } from "./release-lab.mjs";
+import { setupStartScreen } from "./start-screen.mjs";
 import { setupAudioLab, audioKeys } from "./audio-lab.mjs";
-import { syncMusic } from "./audio-assets.mjs";
+import { syncMusic, loadAudioLibrary } from "./audio-assets.mjs";
 import { updateStageUI } from "./stage-ui.mjs";
 import { playCombatCue } from "./combat-feedback.mjs";
 import { StagePresentation, playStageCue } from "./stage-presentation.mjs";
@@ -58,6 +60,7 @@ if (new URLSearchParams(location.search).get("mode") === "stages") {
 let game = new Game(config);
 const assets = new Assets(),
   renderer = new Renderer($("arena"), assets);
+const startScreen = setupStartScreen({ onStart: () => renderer.unlock() });
 const upgradeFeedback = new UpgradeFeedback($("overlay"), (c) =>
   playLevelUp(renderer.audio, c),
 );
@@ -92,7 +95,7 @@ function toast(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => $("toast").classList.remove("show"), 4500);
 }
-let themeLab, balanceLab, audioLab;
+let themeLab, balanceLab, audioLab, releaseLab;
 try {
   themeLab = await setupThemeLab(assets, toast);
 } catch (e) {
@@ -876,9 +879,23 @@ audioLab = setupAudioLab({
   },
 });
 $("openAudioLab").onclick = () => audioLab.open();
+releaseLab = setupReleaseLab({
+  getConfig: () => config,
+  getGame: () => game,
+  snapshotTheme: () => {
+    if (!themeLab) throw new Error("主题尚未准备好，无法生成完整发布包");
+    return themeLab.snapshot();
+  },
+  onOpen: () => {
+    aiming = false;
+    hoverPointer = null;
+  },
+});
 const wide = matchMedia("(min-width: 900px) and (orientation: landscape)");
 function externalBlocked() {
   return (
+    startScreen.isBlocking ||
+    releaseLab?.isOpen ||
     audioLab?.isOpen ||
     balanceLab?.isOpen ||
     maskEditor.isOpen ||
@@ -1479,4 +1496,11 @@ function frame(now) {
   requestAnimationFrame(frame);
 }
 $("tune").disabled = false;
+await loadAudioLibrary().catch((error) => toast(`音频库：${error.message}`));
+fitArena();
+stagePresentation.sync(game);
+renderer.draw(game, angle, false, 0);
+hud(0);
+if (themeLab && !assets.errors.length) startScreen.setReady();
+else startScreen.fail("战场素材未完整加载，请重试");
 requestAnimationFrame(frame);
