@@ -1,0 +1,1256 @@
+.mode-choice select {
+  padding: 2px 19px 2px 6px;
+  height: 24px;
+  min-height: 0;
+  max-width: 150px;
+  font: inherit;
+  font-weight: 700;
+  color: inherit;
+  border: 1px solid #7fb5c388;
+  background: #ffffff28;
+  border-radius: 6px;
+}
+.battle-heading:has(.mode-choice) {
+  min-height: 26px;
+}
+.stage-status {
+  flex: 0 0 auto;
+  margin: 2px 4px 6px;
+  padding: 8px 10px;
+  color: #244f63;
+  border: 1px solid #b9e4ed;
+  background: linear-gradient(135deg, #f2feffff, #dceef4ee);
+  border-radius: 10px;
+  font-size: 11px;
+}
+.stage-status[hidden],
+.combo-status[hidden],
+#bossStatus[hidden] {
+  display: none;
+}
+.stage-title-row,
+.boss-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.stage-title-row strong {
+  font-size: 13px;
+}
+#stageRouteButton {
+  margin-left: auto;
+  min-height: 24px;
+  padding: 2px 6px;
+  font-size: 10px;
+  background: transparent;
+  box-shadow: none;
+}
+.stage-status[data-phase="boss"] {
+  border-color: #ecadac;
+  background: linear-gradient(120deg, #fff4e7, #ffe3e6);
+}
+.stage-status[data-phase="clear"] {
+  border-color: #a3d4c0;
+  background: #e8faee;
+}
+.stage-title-row span {
+  font-variant-numeric: tabular-nums;
+}
+.stage-objective {
+  margin-top: 3px;
+  opacity: 0.8;
+}
+#bossStatus {
+  border-top: 1px solid #8bbbc944;
+  margin-top: 6px;
+  padding-top: 6px;
+}
+.boss-title-row strong {
+  color: #944a68;
+}
+.boss-track {
+  height: 7px;
+  background: #cdb1c466;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 4px 0;
+}
+.boss-track i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #bc5d9e, #f17f98);
+  transition: width 0.12s ease-out;
+}
+#bossIntent {
+  color: #854465;
+  font-weight: 700;
+}
+.combo-status {
+  align-self: center;
+  font-size: 11px;
+  text-align: center;
+  color: #254d66;
+  background: #dff9ffdc;
+  border: 1px solid #79c9ec88;
+  border-radius: 8px;
+  padding: 4px 9px;
+  margin: 3px 0;
+  font-variant-numeric: tabular-nums;
+}
+.combo-status[data-active="true"] {
+  box-shadow: 0 0 9px #54c5ef44;
+  color: #156280;
+}
+.overlay.stage-result {
+  background: rgba(12, 32, 47, 0.8);
+  backdrop-filter: none;
+  color: #fff;
+}
+.overlay.stage-result h2 {
+  color: #fff;
+}
+.overlay.stage-result > p {
+  color: #d6f0f8;
+}
+.stage-result .stage-result-details {
+  max-width: 300px;
+  padding: 12px 18px;
+  border: 1px solid #ffffff33;
+  border-radius: 10px;
+  background: #ffffff10;
+  line-height: 1.8;
+  font-size: 13px;
+}
+@media (max-height: 720px) {
+  .stage-status {
+    padding: 5px 8px;
+    margin-bottom: 3px;
+    font-size: 10px;
+  }
+  .stage-title-row strong {
+    font-size: 11px;
+  }
+  #bossStatus {
+    margin-top: 3px;
+    padding-top: 3px;
+  }
+  .combo-status {
+    padding: 2px 6px;
+    margin: 1px 0;
+    font-size: 10px;
+  }
+}
+
+/* A chapter is a full game-screen destination; it never resizes the arena. */
+.stage-screen {
+  --chapter-ink: #254e62;
+  --chapter-color: var(--theme-primary, #56bed0);
+  position: absolute;
+  inset: 62px 0 0;
+  z-index: 25;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: 12px 24px 0;
+  overflow: hidden;
+  color: var(--chapter-ink);
+  background:
+    radial-gradient(ellipse at 85% 30%, #fcd4ad70, transparent 55%),
+    radial-gradient(ellipse at 0% 45%, #8de2ed60, transparent 65%), #f6f8ee;
+  isolation: isolate;
+  animation: chapter-reveal 0.45s ease-out both;
+}
+.stage-screen[hidden] {
+  display: none;
+}
+.stage-screen[data-chapter="2"] {
+  --chapter-color: var(--theme-secondary, #ea899b);
+  background:
+    radial-gradient(ellipse at 10% 35%, #f3b3cb66, transparent 60%),
+    radial-gradient(ellipse at 100% 50%, #a7dfe977, transparent 60%), #fbf5ed;
+}
+.stage-screen-open .game-header {
+  position: relative;
+  z-index: 26;
+}
+.stage-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.35;
+  pointer-events: none;
+  background-image: radial-gradient(#78a2a266 1px, transparent 1px);
+  background-size: 19px 19px;
+  mask-image: linear-gradient(transparent, #000 55%, transparent);
+}
+.chapter-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #8ba8ad44;
+}
+.chapter-eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.stage-screen .chapter-text-button {
+  padding: 3px 0;
+  min-height: 28px;
+  color: #456777;
+  font-size: 11px;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.chapter-body {
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 12px 2px 16px;
+  text-align: center;
+  overscroll-behavior: contain;
+}
+.chapter-route {
+  list-style: none;
+  display: flex;
+  gap: 0;
+  padding: 8px 0;
+  margin: 0 0 16px;
+}
+.chapter-route li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  position: relative;
+}
+.chapter-route li + li::before {
+  content: "→";
+  position: absolute;
+  left: -5px;
+  color: #9db7ba;
+}
+.chapter-route b {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  background: var(--chapter-color);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #97bcb955;
+  border-radius: 50%;
+}
+.chapter-route [data-state="locked"] {
+  color: #8a999b;
+}
+.chapter-route [data-state="locked"] b {
+  background: #bccaca;
+}
+.chapter-route [data-state="done"] b {
+  background: #63ab92;
+}
+.chapter-route [data-state="current"] b {
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #94c5c366;
+}
+.chapter-kicker {
+  margin: 12px 0 7px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #608790;
+}
+.chapter-title {
+  color: var(--chapter-ink);
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: clamp(28px, 4.1dvh, 40px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1.25;
+  margin: 0;
+  text-shadow: 0 2px #fff;
+}
+.chapter-subtitle {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 10px 0 4px;
+  color: #617d84;
+}
+.chapter-portrait {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: clamp(115px, 23dvh, 210px);
+  margin: 5px 0;
+}
+.chapter-orbit {
+  position: absolute;
+  height: 85%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid #ffffffbb;
+  box-shadow:
+    0 0 0 11px #ffffff44,
+    0 0 0 12px #ffffff66,
+    inset 0 0 25px #fff7;
+  background: radial-gradient(circle, #fffd 10%, #a1d8dc44 65%, #eaf0e600);
+}
+.chapter-orbit::after {
+  content: "✦";
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  font-size: 32px;
+  text-align: left;
+  transform: rotate(-18deg);
+}
+.chapter-monster {
+  position: relative;
+  height: 100%;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 9px #39697626);
+}
+.chapter-target {
+  padding: 13px 15px;
+  border-radius: 16px;
+  border: 1px solid #ffffffe0;
+  background: #ffffff80;
+  box-shadow: 0 6px 18px #7ba9ac12;
+}
+.chapter-target small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #819a9e;
+}
+.chapter-target strong {
+  display: block;
+  font-size: 17px;
+  margin-top: 5px;
+}
+.chapter-target p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 7px 0 0;
+}
+.chapter-goals {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 0;
+  gap: 8px;
+}
+.chapter-goals > span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 11px;
+}
+.chapter-goals b {
+  color: #82acb4;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.chapter-footer {
+  padding: 10px 0 max(18px, env(safe-area-inset-bottom));
+  border-top: 1px solid #8ba8ad33;
+}
+.chapter-footnote {
+  font-size: 10px;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 0 10px;
+  color: #6d888d;
+}
+.stage-screen .chapter-action {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 16px;
+  border-radius: 15px;
+  border: 1px solid #ffffffbb;
+  background: linear-gradient(180deg, #fff1b0, #f4cc75);
+  box-shadow:
+    inset 0 2px #fff9,
+    0 4px 0 #c49b53,
+    0 7px 15px #bc93532a;
+  color: #665133;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.stage-screen .chapter-action:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 2px #fff9,
+    0 2px 0 #c49b53;
+}
+.stage-screen .chapter-action:disabled {
+  opacity: 0.8;
+}
+.stage-screen button:focus-visible {
+  outline: 3px solid #3989af;
+  outline-offset: 3px;
+}
+.stage-screen[data-scene="boss"] {
+  --chapter-ink: #fff0d3;
+  background: radial-gradient(ellipse at 50% 44%, #a24c60dd, #233c51f7 70%);
+}
+.stage-screen[data-scene="boss"] .chapter-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stage-screen[data-scene="boss"] .chapter-title {
+  text-shadow: 0 4px #402937;
+}
+.stage-screen[data-scene="boss"] .chapter-kicker {
+  color: #ffbf8b;
+  padding: 10px 0;
+  border-block: 1px solid #ffcf8555;
+}
+.stage-screen[data-scene="boss"] .chapter-portrait {
+  height: clamp(130px, 28dvh, 250px);
+  margin: 20px 0;
+  flex: 0 0 auto;
+}
+.stage-screen[data-scene="boss"] .chapter-subtitle,
+.stage-screen[data-scene="boss"] .chapter-footnote,
+.stage-screen[data-scene="boss"] .chapter-text-button {
+  color: #e4c9c9;
+}
+.boss-challenge {
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 8px 10px;
+  font-weight: 700;
+}
+.boss-arrival-timer {
+  width: 90px;
+  height: 3px;
+  margin: 22px auto;
+  background: #ffffff25;
+}
+.boss-arrival-timer i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffce88;
+  transform: scaleX(var(--arrival-progress, 1));
+  transform-origin: left;
+}
+.chapter-emblem {
+  display: grid;
+  justify-items: center;
+  margin: 5px 0 10px;
+  position: relative;
+  isolation: isolate;
+}
+.chapter-emblem span {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 3px solid #fff5c4;
+  font-size: 40px;
+  color: #fff7dc;
+  background: linear-gradient(145deg, #f5d991, #d3a05c);
+  box-shadow:
+    0 0 0 4px #e5c08366,
+    inset 0 0 0 3px #b58e5a55;
+}
+.chapter-emblem small {
+  background: #547b82;
+  color: #fff1cb;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: -8px;
+  z-index: 1;
+  padding: 4px 15px;
+  clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%);
+}
+.stage-screen[data-celebrate="true"][data-scene="result"]
+  .chapter-emblem::before {
+  content: "";
+  position: absolute;
+  inset: -26px;
+  z-index: -1;
+  background: repeating-conic-gradient(
+    from 0deg,
+    #f8d48755 0deg 12deg,
+    transparent 12deg 30deg
+  );
+  mask-image: radial-gradient(circle, #000, transparent 58%);
+  animation: chapter-rays 22s linear infinite;
+}
+.chapter-medals {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 15px 0 7px;
+}
+.chapter-medal {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  opacity: 0.5;
+}
+.chapter-medal b {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid #aebdbc;
+  background: #e0e6e1;
+  color: #78908d;
+  font-size: 20px;
+}
+.chapter-medal span {
+  font-size: 10px;
+}
+.chapter-medal[data-earned="true"] {
+  opacity: 1;
+}
+.chapter-medal[data-earned="true"] b {
+  color: #a37332;
+  background: linear-gradient(#fff2ba, #f6d495);
+  border-color: #e7c987;
+  box-shadow: 0 2px 0 #d5b371;
+}
+.chapter-score {
+  display: grid;
+  gap: 0;
+  justify-items: center;
+  margin: 9px 0;
+}
+.chapter-score small {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #769198;
+}
+.chapter-score strong {
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+}
+.chapter-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 12px 0;
+}
+.chapter-results div {
+  display: grid;
+  gap: 4px;
+  border-right: 1px solid #93b0b43b;
+}
+.chapter-results div:last-child {
+  border: 0;
+}
+.chapter-results b {
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+.chapter-results small {
+  font-size: 10px;
+  color: #7a9093;
+}
+.chapter-growth {
+  text-align: left;
+  padding: 14px;
+  border-radius: 14px;
+  background: #ffffff99;
+  border: 1px solid #fff;
+  margin: 14px 0;
+}
+.chapter-growth > strong {
+  font-size: 13px;
+}
+.chapter-gains {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px 0 8px;
+  font-weight: 800;
+  color: #448780;
+  font-size: 16px;
+}
+.chapter-receipts {
+  font-size: 12px;
+  margin: 0 0 4px;
+}
+.chapter-growth > small {
+  font-size: 9px;
+  color: #92a1a1;
+}
+.chapter-build {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+.chapter-build span {
+  font-size: 10px;
+  border-radius: 6px;
+  padding: 4px 6px;
+  background: #dfeeee;
+  color: #51767b;
+}
+.stage-screen[data-leaving="true"] {
+  animation: chapter-exit var(--scene-exit, 0.4s) ease-in both;
+  pointer-events: none;
+}
+.stage-screen[data-paused="true"],
+.stage-screen[data-paused="true"] *,
+.stage-screen[data-paused="true"] ::before {
+  animation-play-state: paused !important;
+}
+@keyframes chapter-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes chapter-exit {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+@keyframes chapter-rays {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-height: 740px), (max-width: 359px) {
+  .stage-screen {
+    padding: 8px 16px 0;
+  }
+  .chapter-top {
+    padding-bottom: 6px;
+  }
+  .chapter-route {
+    margin-bottom: 5px;
+  }
+  .chapter-body {
+    padding-top: 7px;
+  }
+  .chapter-kicker {
+    margin-top: 7px;
+    font-size: 10px;
+  }
+  .chapter-title {
+    font-size: 28px;
+  }
+  .chapter-portrait {
+    height: 130px;
+  }
+  .chapter-goals {
+    margin-top: 12px;
+  }
+  .chapter-target {
+    padding: 10px 12px;
+  }
+  .chapter-footer {
+    padding-top: 7px;
+  }
+  .chapter-eyebrow {
+    font-size: 8px;
+  }
+  .chapter-emblem span {
+    width: 52px;
+    height: 52px;
+    font-size: 32px;
+  }
+  .chapter-medals {
+    margin-top: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage-screen,
+  .stage-screen *,
+  .stage-screen ::before {
+    animation: none !important;
+  }
+}
+
+/* The arena owns the screen. Status floats over it; transient HUD never reflows it. */
+.workspace .game-shell {
+  padding: max(6px, env(safe-area-inset-top)) 8px
+    max(7px, env(safe-area-inset-bottom));
+}
+.game-shell .game-header {
+  height: 38px;
+  min-height: 38px;
+  margin: 0 2px 5px;
+  gap: 6px;
+}
+.game-shell .brand {
+  font-size: 16px;
+  gap: 7px;
+  letter-spacing: 0;
+}
+.game-shell .brand small {
+  display: none;
+}
+.game-shell .brand-icon {
+  width: 27px;
+  height: 29px;
+  border-radius: 8px;
+}
+.game-shell .brand-icon img {
+  height: 28px;
+}
+.game-shell .header-actions {
+  gap: 5px;
+}
+.game-shell .header-actions button {
+  min-height: 32px;
+  padding: 4px 9px;
+  font-size: 10px;
+}
+.game-shell .hud-panel {
+  padding: 6px 10px;
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+.game-shell .scoreboard {
+  gap: 8px;
+  min-height: 24px;
+}
+.game-shell .score-label {
+  padding-left: 0;
+  font-size: 8px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.game-shell .score-label::before {
+  display: none;
+}
+.game-shell .score-label strong {
+  display: inline;
+  font-size: 23px;
+  margin: 0 0 0 5px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.game-shell .counters {
+  gap: 9px;
+}
+.game-shell .counters > div {
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+}
+.game-shell .counters small {
+  font-size: 8px;
+  letter-spacing: 0;
+}
+.game-shell .counters span {
+  font-size: 15px;
+}
+.game-shell .counters span::before {
+  width: 18px;
+  height: 18px;
+}
+.game-shell #openShop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  min-height: 25px;
+  padding: 3px 5px;
+}
+.game-shell .xp-row {
+  margin-top: 5px;
+  font-size: 8px;
+  gap: 6px;
+}
+.game-shell .xp-track {
+  height: 9px;
+  min-height: 9px;
+  padding: 1px 2px;
+}
+.game-shell .xp-row #level {
+  padding-left: 15px;
+  font-size: 8px;
+}
+.game-shell .xp-row #level::before {
+  width: 13px;
+  height: 15px;
+  top: -3px;
+}
+.game-shell .battle-stage {
+  position: relative;
+  padding: 0;
+}
+.game-shell .battle-heading {
+  position: absolute;
+  z-index: 5;
+  top: 7px;
+  left: 12px;
+  height: 24px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+.game-shell .mode-choice select {
+  max-width: 92px;
+  height: 24px;
+  font-size: 9px;
+  color: #3b6273;
+  border-color: #afd8d5aa;
+  background: #fffc;
+  padding: 2px 3px;
+}
+.game-shell .arena-label {
+  top: 11px;
+  left: 113px;
+  right: 13px;
+  pointer-events: none;
+  color: #456d7c;
+  font-size: 9px;
+  letter-spacing: 0;
+  z-index: 4;
+  text-shadow: 0 1px #fff;
+}
+.game-shell[data-mode="stages"] #round {
+  visibility: hidden;
+}
+.game-shell .arena-label::before,
+.game-shell .arena-label::after {
+  display: none;
+}
+.game-shell .stage-status {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 7px;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 0;
+}
+.game-shell .stage-title-row {
+  gap: 0;
+}
+.game-shell #stageRouteButton {
+  position: relative;
+  min-height: 24px;
+  height: 24px;
+  padding: 2px 8px;
+  margin: 0;
+  border-radius: 7px;
+  border: 1px solid #b6d8d5aa;
+  background: #fffc;
+  color: #376577;
+  overflow: hidden;
+}
+.game-shell #stageRouteButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--stage-progress, 0%);
+  height: 2px;
+  background: var(--theme-primary, #57c1d0);
+}
+.game-shell #stageTitle {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.game-shell #stageProgress,
+.game-shell #stageObjective {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.game-shell #bossStatus {
+  position: absolute;
+  z-index: 4;
+  top: 39px;
+  left: 22px;
+  right: 22px;
+  margin: 0;
+  padding: 7px 9px;
+  border: 1px solid #ead2d280;
+  border-radius: 9px;
+  background: #fff5eee0;
+  pointer-events: none;
+  font-size: 9px;
+  box-shadow: 0 3px 9px #7c62701c;
+}
+.game-shell .boss-track {
+  height: 5px;
+  margin: 4px 0;
+}
+.game-shell #bossIntent {
+  font-size: 9px;
+  font-weight: 500;
+}
+.game-shell .combo-status {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 39px;
+  transform: translateX(-50%);
+  margin: 0;
+  width: max-content;
+  max-width: calc(100% - 30px);
+  padding: 5px 10px;
+  font-size: 10px;
+  pointer-events: none;
+  color: #2f6d7e;
+  background: #ecfdffdc;
+  box-shadow: 0 3px 12px #3c9aad26;
+}
+.game-shell #bossStatus:not([hidden]) + .combo-status {
+  top: 108px;
+}
+.game-shell .bottom-deck {
+  padding-top: 5px;
+  position: relative;
+}
+.game-shell .play-hint {
+  font-size: 9px;
+  line-height: 15px;
+  min-height: 15px;
+  margin: 0 0 4px;
+}
+.game-shell .play-controls {
+  gap: 5px;
+}
+.game-shell .play-controls button,
+.game-shell .play-controls button:not(#retry),
+.game-shell .build-details > summary {
+  flex: 1;
+  min-height: 37px;
+  padding: 7px 3px;
+  font-size: 10px;
+  border-radius: 11px;
+}
+.game-shell .play-controls button::before {
+  display: none;
+}
+.game-shell .build-details {
+  flex: 1;
+  min-width: 0;
+}
+.game-shell .build-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  cursor: pointer;
+  color: var(--theme-text, #3b6375);
+  background: #fff9;
+  border: 1px solid var(--theme-border, #a9d0dd);
+  box-shadow: 0 2px 0 #688e9822;
+  height: 100%;
+}
+.build-details > summary::-webkit-details-marker {
+  display: none;
+}
+.game-shell .build-details[open] > summary {
+  background: #fff1c5;
+  border-color: #dfc58f;
+}
+.game-shell .build-popover {
+  position: absolute;
+  z-index: 15;
+  bottom: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: min(360px, 55dvh);
+  overflow: auto;
+  padding: 13px;
+  border: 1px solid #fff;
+  border-radius: 13px;
+  background: var(--theme-panel, #eff9ff);
+  box-shadow: 0 8px 30px #29485844;
+  color: var(--theme-text, #355d75);
+}
+.build-popover-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+.build-popover-heading small {
+  font-size: 8px;
+  font-weight: 400;
+  opacity: 0.65;
+}
+.game-shell .build-strip {
+  margin: 8px 0;
+  padding: 5px 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+.game-shell .buffs {
+  flex-wrap: wrap;
+  white-space: normal;
+  overflow: visible;
+}
+.game-shell .stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px 0;
+  padding: 9px 0;
+  margin: 7px 0;
+}
+.game-shell .stat {
+  flex-direction: column;
+  gap: 3px;
+}
+.game-shell .stat b {
+  font-size: 15px;
+}
+.game-shell .stat span {
+  font-size: 9px;
+}
+.game-shell .bottom-meta {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 20px;
+  font-size: 9px;
+  margin: 0;
+  gap: 6px 10px;
+}
+.game-shell .bottom-meta #liveStatus {
+  flex-basis: 100%;
+  max-width: none;
+}
+.game-shell .bottom-meta #physicsBadge {
+  font-size: 9px;
+}
+@media (max-width: 500px) {
+  .workspace .game-shell {
+    width: 100%;
+  }
+  .game-shell .header-actions #fullscreen {
+    display: none;
+  }
+}
+@media (max-width: 359px) {
+  .game-shell .counters small {
+    display: none;
+  }
+  .game-shell .brand {
+    font-size: 14px;
+  }
+  .game-shell .mode-choice select {
+    max-width: 78px;
+    font-size: 8px;
+  }
+  .game-shell .arena-label {
+    left: 96px;
+    font-size: 8px;
+  }
+}
+.stage-screen[data-act="2"] {
+  --chapter-color: var(--theme-secondary, #e7989e);
+  background:
+    radial-gradient(ellipse at 5% 35%, #efc2ce66, transparent 60%), #fbf5ed;
+}
+.chapter-route-panel {
+  margin: 0 0 10px;
+}
+.chapter-route-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #68868c;
+}
+.chapter-route-heading strong {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.stage-screen .chapter-route-heading button {
+  width: 30px;
+  font-size: 22px;
+  line-height: 1;
+}
+.chapter-route {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px 6px;
+  margin: 4px 0 6px;
+  padding: 4px;
+}
+.chapter-route li {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  min-width: 0;
+}
+.chapter-route li + li::before {
+  display: none;
+}
+.chapter-route b {
+  width: 30px;
+  height: 30px;
+  font-size: 11px;
+  border-radius: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.chapter-route li > span {
+  font-size: 8px;
+  height: 10px;
+  line-height: 10px;
+}
+.chapter-route [data-boss="true"] b {
+  border-color: #f9d6a0;
+  border-radius: 8px;
+  background: #af7085;
+  box-shadow: 0 2px 0 #805767;
+}
+.chapter-route [data-boss="true"] span {
+  color: #a65f77;
+}
+.chapter-route [data-state="current"] b {
+  transform: scale(1.06);
+}
+.stage-screen[data-boss="false"][data-scene="intro"] .chapter-portrait {
+  height: clamp(140px, 25dvh, 250px);
+}
+.stage-screen[data-boss="false"][data-scene="intro"] .chapter-title {
+  font-size: 29px;
+}
+.stage-screen[data-boss="false"][data-scene="intro"] .chapter-goals {
+  margin-top: 12px;
+}
+.stage-screen[data-boss="false"][data-scene="intro"] .chapter-target {
+  padding: 10px 12px;
+}
+.stage-screen[data-boss="false"][data-scene="result"] .chapter-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stage-screen[data-boss="false"][data-scene="result"] .chapter-emblem {
+  margin: 10px 0;
+}
+.stage-screen[data-boss="false"][data-scene="result"] .chapter-emblem span {
+  width: 48px;
+  height: 48px;
+  font-size: 25px;
+}
+.stage-screen[data-boss="false"][data-scene="result"] .chapter-emblem small {
+  display: none;
+}
+.stage-screen[data-boss="false"][data-scene="result"] .chapter-title {
+  font-size: 29px;
+}
+.stage-screen[data-boss="false"][data-scene="result"] .chapter-score strong {
+  font-size: 31px;
+}
+.stage-screen[data-boss="false"][data-scene="result"] .chapter-growth {
+  margin: 12px 0 4px;
+}
+.chapter-portrait > .chapter-monster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Entry pages reserve reading for the journey, title and next action. */
+.stage-screen[data-scene="intro"] .chapter-portrait {
+  margin: clamp(14px, 4dvh, 40px) 0;
+}
+.stage-screen[data-scene="intro"] .chapter-subtitle {
+  max-width: 30em;
+  margin-inline: auto;
+}
+
+.stage-battle-banner {
+  position: absolute;
+  z-index: 25;
+  inset: 35% 0 auto;
+  pointer-events: none;
+  text-align: center;
+  padding: 26px 12px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #effcffef 20%,
+    #effcffef 80%,
+    transparent
+  );
+  color: #23576a;
+  animation: battle-banner-arrive 0.35s ease-out both;
+}
+.stage-battle-banner[hidden] {
+  display: none;
+}
+.stage-battle-banner small {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+.stage-battle-banner strong {
+  display: block;
+  font-size: clamp(24px, 5vw, 38px);
+  text-shadow: 0 2px white;
+}
+.stage-battle-banner[data-kind="result"] {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #fff2ccee 20%,
+    #fff2ccee 80%,
+    transparent
+  );
+  color: #926327;
+}
+.stage-battle-banner[data-kind="boss"] {
+  color: #a34260;
+}
+.stage-battle-banner[data-paused="true"] {
+  animation-play-state: paused;
+}
+@keyframes battle-banner-arrive {
+  from {
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
