@@ -1,9 +1,9 @@
-# 飞刀弹弹乐 · 朋友内测
+# 飞刀弹弹乐
 
-当前批次：playtest-2026-09-14-01（v0.42.0）。
+手机和电脑浏览器可玩的 H5 飞刀内测。
 
-[固定批次试玩](https://jamstrak.github.io/knife-bounce-playtest/playtests/playtest-2026-09-14-01/)
+- [开始试玩](https://jamstrak.github.io/knife-bounce-playtest/)
+- [本轮固定版本 playtest-2026-09-14-02-fast](https://jamstrak.github.io/knife-bounce-playtest/playtests/playtest-2026-09-14-02-fast/)
+- [上一轮固定版本 playtest-2026-09-14-01](https://jamstrak.github.io/knife-bounce-playtest/playtests/playtest-2026-09-14-01/)
 
-采用用户完整发布包：541项参数，飞刀射速1800；晶糖主题17张图片；14项替换音效；本批未配置BGM。手机与电脑打开后点击开始即可游玩。
-
-源码3307c1a，资源清单和SHA-256见release-manifest.json。固定批次路径后续保持不变，根地址指向最近发布。
+本轮保持 v0.42.0 的玩法与已确认参数，优化资源加载；反馈请注明批次、设备与浏览器。

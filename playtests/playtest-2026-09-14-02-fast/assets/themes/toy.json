@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "id": "toy",
+  "name": "玩具乐园",
+  "style": "toy",
+  "palette": {
+    "background": "#6dbcea",
+    "shellTop": "#80ceff",
+    "shellBottom": "#cce9fc",
+    "surface": "#edf7ff",
+    "surfaceAlt": "#f8eada",
+    "text": "#304f72",
+    "muted": "#69849a",
+    "border": "#bdd4e7",
+    "primary": "#258ae6",
+    "secondary": "#ff9332",
+    "accent": "#ffbf35",
+    "onPrimary": "#ffffff"
+  },
+  "render": {
+    "floor": "#d7bd91",
+    "grid": "#b28f5d30",
+    "dangerZone": "#ffaa2520",
+    "dangerLine": "#e79129",
+    "floorText": "#997344",
+    "shadow": "#75533735",
+    "health": "#315572",
+    "healthDanger": "#e65540",
+    "healthText": "#ffffff",
+    "aim": "#0d9ff5",
+    "trail": "#44bfff88",
+    "origin": "#309bd688",
+    "recall": "#2eaeff",
+    "recallTrail": "#30a5ff88",
+    "blast": "#66cfff55",
+    "floatText": "#263e64",
+    "leakParticle": "#ff7669",
+    "killParticle": "#dbed9b",
+    "hitParticle": "#ffa05e"
+  },
+  "slots": {
+    "enemy": {
+      "src": "assets/toy/enemy-blue.png",
+      "width": 1.42,
+      "height": 1.28,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 8,
+      "loop": true
+    },
+    "enemyHit": {
+      "src": "",
+      "width": 1.25,
+      "height": 1.25,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 12,
+      "loop": false
+    },
+    "corpse": {
+      "src": "assets/toy/corpse-blue.png",
+      "width": 1.42,
+      "height": 1.3,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 10,
+      "loop": false
+    },
+    "knife": {
+      "src": "assets/toy/knife.png",
+      "width": 0.24,
+      "height": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.02,
+      "rotation": 90,
+      "frames": 1,
+      "columns": 1,
+      "fps": 12,
+      "loop": true
+    },
+    "background": {
+      "src": "",
+      "width": 1,
+      "height": 1,
+      "anchorX": 0,
+      "anchorY": 0,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 1,
+      "loop": true
+    },
+    "launcher": {
+      "src": "assets/toy/launcher.png",
+      "width": 1.45,
+      "height": 1.2,
+      "anchorX": 0.5,
+      "anchorY": 0.35,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 8,
+      "loop": true
+    },
+    "enemyOrange": {
+      "src": "assets/toy/enemy-orange.png",
+      "width": 1.42,
+      "height": 1.2,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 8,
+      "loop": true
+    },
+    "corpseOrange": {
+      "src": "assets/toy/corpse-orange.png",
+      "width": 1.42,
+      "height": 1.32,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 10,
+      "loop": false
+    },
+    "floorTile": {
+      "src": "assets/toy/floor-tile.webp",
+      "width": 1,
+      "height": 1,
+      "anchorX": 0,
+      "anchorY": 0,
+      "rotation": 0,
+      "frames": 1,
+      "columns": 1,
+      "fps": 1,
+      "loop": true
+    },
+    "uiCrown": {
+      "src": "assets/toy/crown.png"
+    },
+    "uiHeart": {
+      "src": "assets/toy/heart.png"
+    },
+    "uiCoin": {
+      "src": "assets/toy/coin.png"
+    },
+    "uiXp": {
+      "src": "assets/toy/xp-icon.png"
+    },
+    "uiTrack": {
+      "src": "assets/toy/xp-track.png"
+    },
+    "uiButton": {
+      "src": "assets/toy/button.png"
+    },
+    "uiPause": {
+      "src": "assets/toy/pause.png"
+    },
+    "uiBrand": {
+      "src": "assets/toy/knife.png"
+    }
+  }
+}
