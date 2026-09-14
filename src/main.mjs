@@ -1,3 +1,4 @@
+import { officialConfig } from "./official-config.mjs";
 import { setupAudioLab, audioKeys } from "./audio-lab.mjs";
 import { syncMusic } from "./audio-assets.mjs";
 import { updateStageUI } from "./stage-ui.mjs";
@@ -28,7 +29,7 @@ import { pickupTypes } from "./field-rules.mjs";
 import { entityTypes } from "./entity-effects.mjs";
 const $ = (s) => document.getElementById(s),
   storageKey = "knife-club.config.v1";
-let config = defaults(),
+let config = validate(officialConfig).config,
   startupError = "",
   dirty = false,
   paused = false,
@@ -858,7 +859,9 @@ audioLab = setupAudioLab({
     if (save) {
       // Audio save merges into persisted config; unrelated unsaved tuning stays a draft.
       const raw = localStorage.getItem(storageKey);
-      const stored = raw ? validate(JSON.parse(raw)).config : defaults();
+      const stored = raw
+        ? validate(JSON.parse(raw)).config
+        : validate(officialConfig).config;
       localStorage.setItem(
         storageKey,
         exportConfig({
@@ -973,7 +976,7 @@ $("import").onchange = async (e) => {
 $("defaults").onclick = () => {
   if (!confirm("恢复所有参数为默认值？当前局会重新开始，保存的配置暂不覆盖。"))
     return;
-  config = defaults();
+  config = validate(officialConfig).config;
   preset = "basic";
   reset();
   changed();
