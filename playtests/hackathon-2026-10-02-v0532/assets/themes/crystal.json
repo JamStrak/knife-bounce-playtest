@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "crystal",
+  "name": "晶糖乐园",
+  "style": "crystal",
+  "palette": {
+    "background": "#dcefed",
+    "shellTop": "#fff8ed",
+    "shellBottom": "#f4faf5",
+    "surface": "#fffdf5",
+    "surfaceAlt": "#f8eede",
+    "text": "#496575",
+    "muted": "#829493",
+    "border": "#c5dfd8",
+    "primary": "#56bed0",
+    "secondary": "#f29486",
+    "accent": "#ffdb85",
+    "onPrimary": "#ffffff"
+  },
+  "render": {
+    "floor": "#fff6e1",
+    "grid": "#b28f5d00",
+    "dangerZone": "#ffaa2500",
+    "dangerLine": "#e7912900",
+    "floorText": "#99734400",
+    "shadow": "#737e7920",
+    "health": "#667d8d",
+    "healthDanger": "#e6887b",
+    "healthText": "#ffffff",
+    "aim": "#459cb3",
+    "trail": "#44bfff88",
+    "origin": "#309bd688",
+    "recall": "#2eaeff",
+    "recallTrail": "#30a5ff88",
+    "blast": "#ffca7899",
+    "floatText": "#263e64",
+    "leakParticle": "#ff7669",
+    "killParticle": "#7de2dd",
+    "hitParticle": "#ffaf4d"
+  },
+  "slots": {
+    "enemy": {
+      "src": "assets/crystal/enemy.png",
+      "width": 1.4,
+      "height": 1.46
+    },
+    "corpse": {
+      "src": "assets/crystal/corpse.png",
+      "width": 1.43,
+      "height": 1.44
+    },
+    "enemyBomb": {
+      "src": "assets/crystal/bomb.png",
+      "width": 1.4,
+      "height": 1.41
+    },
+    "knife": {
+      "src": "assets/crystal/knife.png",
+      "width": 0.2289156626506024,
+      "height": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.01,
+      "rotation": 90
+    },
+    "launcher": {
+      "src": "assets/crystal/launcher.png",
+      "width": 1.6,
+      "height": 1.52,
+      "anchorY": 0.15
+    },
+    "background": {
+      "src": "assets/crystal/arena.webp",
+      "width": 1,
+      "height": 1
+    },
+    "uiHeart": {
+      "src": "assets/crystal/heart.png",
+      "width": 1,
+      "height": 1
+    },
+    "uiCoin": {
+      "src": "assets/crystal/coin.png",
+      "width": 1,
+      "height": 1
+    },
+    "uiXp": {
+      "src": "assets/crystal/xp.png",
+      "width": 1,
+      "height": 1
+    },
+    "uiPause": {
+      "src": "assets/crystal/pause.png",
+      "width": 1,
+      "height": 1
+    },
+    "uiBrand": {
+      "src": "assets/crystal/knife.png",
+      "width": 1,
+      "height": 1
+    },
+    "enemyFast": {
+      "src": "assets/crystal/fast.png",
+      "width": 1.8,
+      "height": 1.1
+    },
+    "corpseFast": {
+      "src": "assets/crystal/fast-corpse.png",
+      "width": 1.8,
+      "height": 1.04
+    }
+  },
+  "arena": {
+    "left": 0.040382571732199786,
+    "top": 0.07655502392344497,
+    "right": 0.9596174282678002,
+    "bottom": 0.9419856459330144
+  }
+}

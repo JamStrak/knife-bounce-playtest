@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "default": "toy",
+  "themes": [
+    {
+      "id": "toy",
+      "name": "玩具乐园",
+      "src": "assets/themes/toy.json"
+    },
+    {
+      "id": "classic",
+      "name": "经典深色",
+      "src": "assets/themes/classic.json"
+    },
+    {
+      "id": "crystal",
+      "name": "晶糖乐园",
+      "src": "assets/themes/crystal.json"
+    },
+    {
+      "id": "glitch",
+      "name": "电子故障",
+      "src": "assets/themes/glitch.json"
+    }
+  ]
+}

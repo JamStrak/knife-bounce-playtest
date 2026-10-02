@@ -1,0 +1,1292 @@
+{
+  "schemaVersion": 1,
+  "themeId": "glitch",
+  "source": {
+    "batch": "2026-09-17-全主题生产测试",
+    "study": "bf6b435b7f4b",
+    "gameVersion": "v0.42.0 / e6809a6",
+    "assetMap": {
+      "file": "assets/asset-map.json",
+      "sha256": "c1fe3f51923fdf5d5a3258aa2cb40d01983b0a7ad5469a906d4181a4530f6945"
+    },
+    "themeExport": {
+      "file": "exports/glitch-theme-import.json",
+      "sha256": "6c9aa38bc89f91c6df17e24f54a39ec79448238cb864e4c2ff2e91b2dd3a43a7"
+    }
+  },
+  "processing": {
+    "encoder": "sharp",
+    "sharpVersion": "0.35.4",
+    "webpVersion": "1.6.0",
+    "lossless": true,
+    "effort": 6,
+    "sizePolicy": "Use lossless WebP only when smaller and every visible RGB/alpha byte matches; otherwise retain original PNG.",
+    "pixelPolicy": "Compare sRGB RGBA at original dimensions. Alpha is exact everywhere; RGB is exact wherever alpha > 0. Ignore only RGB under alpha = 0.",
+    "sourcePolicy": "Read only asset-map.json, glitch-theme-import.json and the 47 listed assets/png files. Never read failed candidate folders or modify source files."
+  },
+  "arena": {
+    "pixels": {
+      "width": 941,
+      "height": 1672,
+      "left": 28,
+      "top": 31,
+      "right": 912,
+      "bottom": 1638
+    },
+    "normalized": {
+      "left": 0.02975557917109458,
+      "top": 0.01854066985645933,
+      "right": 0.9691817215727949,
+      "bottom": 0.9796650717703349
+    },
+    "basis": "941×1672 背景发光直墙像素边界：左右 x=28/912，顶底 y=31/1638。矩形碰撞近似四角削角，不裁切或重绘背景。"
+  },
+  "limitations": [
+    "12 张怪物及尸体图来自近似透明候选；来源严格一致性未通过。本次保存最终导出的既有可见像素，不重新抠图。",
+    "新爆炸素材只有静态图，仅存档备用且未启用。bombExplosion 与 bombExplosion02 沿用项目原有两套完整8帧特效（2列、非循环），未替换为静态图。"
+  ],
+  "summary": {
+    "assets": 47,
+    "importedAssetsUsed": 46,
+    "unusedImportedAssets": 1,
+    "importedSlots": 46,
+    "borrowedSlots": 2,
+    "populatedSlots": 48,
+    "losslessWebp": 47,
+    "originalPng": 0,
+    "approximateTransparencyCandidates": 12,
+    "sourceBytes": 5809470,
+    "outputBytes": 4055882,
+    "savedBytes": 1753588
+  },
+  "borrowedSlots": [
+    {
+      "slot": "bombExplosion",
+      "file": "assets/effects/bomb-burst.png",
+      "sha256": "6e83d5bf11ddb263bf82469f619500ab114acc6f8b7a8fa8d69de81f80881219",
+      "bytes": 101319,
+      "width": 256,
+      "height": 512,
+      "meta": {
+        "src": "assets/effects/bomb-burst.png",
+        "width": 1,
+        "height": 1,
+        "anchorX": 0.5,
+        "anchorY": 0.5,
+        "frames": 8,
+        "columns": 2,
+        "fps": 16,
+        "loop": false
+      },
+      "reason": "沿用 defaultCreatureSlots 的完整8帧爆炸特效；新静态图不替换动画。"
+    },
+    {
+      "slot": "bombExplosion02",
+      "file": "assets/effects/bomb02.png",
+      "sha256": "768f8243fb69bc772c7c5669284658de1785c6538b76c92d8db465e06ffefec2",
+      "bytes": 1257101,
+      "width": 892,
+      "height": 1788,
+      "meta": {
+        "src": "assets/effects/bomb02.png",
+        "width": 1,
+        "height": 1.0022421524663676,
+        "anchorX": 0.5,
+        "anchorY": 0.5,
+        "frames": 8,
+        "columns": 2,
+        "fps": 16,
+        "loop": false
+      },
+      "reason": "沿用 defaultCreatureSlots 的完整8帧爆炸特效；新静态图不替换动画。"
+    }
+  ],
+  "records": [
+    {
+      "name": "enemy",
+      "slots": [
+        "enemy"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/enemy.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_001.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "be3d8751d71db0cb59383309d1bdb780b3fec9030c243a91363c47aa8dc13917",
+      "sourceBytes": 84235,
+      "file": "assets/glitch/enemy.webp",
+      "sha256": "7d54bdb5ed4f52aa64073146e389c4a6addc307dd1cde9e059bfd8112ec0286e",
+      "bytes": 61504,
+      "width": 284,
+      "height": 243,
+      "visibleRgbaSHA256": "184acae36e7cd2a28d74c5ae181f4cfaabe6cdc36263026d2b4f8bf618cb3d60",
+      "alphaSHA256": "ceaaef184afad18586a0756a2aad13c22fd87faf5f10a9adffb702752d235381",
+      "alphaPixels": {
+        "transparent": 15378,
+        "partial": 11450,
+        "opaque": 42184
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "enemy_fast",
+      "slots": [
+        "enemyFast"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/enemy_fast.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_002.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "b89d73b1ea3010d42a94f1b2b6dcc9ad0870554c2561c2d63c4aa81dc72ac9be",
+      "sourceBytes": 94151,
+      "file": "assets/glitch/enemy_fast.webp",
+      "sha256": "e564aefd24969d37d8100fc4e07d3dbd9a16cc5d8e0b722fc4365b0a41a8ab75",
+      "bytes": 66354,
+      "width": 271,
+      "height": 290,
+      "visibleRgbaSHA256": "4f25df0bda6f2276fd00ba7087349130add5b2b3a647bc23521fb145fbe9c6cd",
+      "alphaSHA256": "14b5f8eb0b9ae663e06be68618fea0aa9d1b20859a8c05f47a63d238bf6d621a",
+      "alphaPixels": {
+        "transparent": 37978,
+        "partial": 10732,
+        "opaque": 29880
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "enemy_bomb",
+      "slots": [
+        "enemyBomb"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/enemy_bomb.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_003.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "20123a98d0364da016763e46ec95949d5454c2f213c35d8c044e1813dd3526f7",
+      "sourceBytes": 104795,
+      "file": "assets/glitch/enemy_bomb.webp",
+      "sha256": "1b758ab14279893428487dbc56078395c725a48dea1dfb117ac5b5324c6d56aa",
+      "bytes": 70286,
+      "width": 298,
+      "height": 289,
+      "visibleRgbaSHA256": "f5b483258d3bc24f69b5862b0722f46335d001bd0076ded08f30100bf34cf421",
+      "alphaSHA256": "ccba4d75aaef62268cfa10d9400a529158da94e7aadcf9aa6a11e0a7b6bcfbbf",
+      "alphaPixels": {
+        "transparent": 26002,
+        "partial": 11456,
+        "opaque": 48664
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "enemy_armor",
+      "slots": [
+        "enemyOrange"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/enemy_armor.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_004.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "c31e18cd38f94eccc9e39fd47883f6e95d478f87622a5ac9ec0585e5fc5aba7e",
+      "sourceBytes": 116819,
+      "file": "assets/glitch/enemy_armor.webp",
+      "sha256": "51ae935f224d1b1322272f56057391cec0ead5aa4e6002d4c66f0be7cec89695",
+      "bytes": 81198,
+      "width": 314,
+      "height": 253,
+      "visibleRgbaSHA256": "b23be48dd49c9dfebfcfe38965e37878b5db52a39042b4327320e269fb90e48a",
+      "alphaSHA256": "375f1db1db495036c78fa28ae8a3bcf8782699af4d47ec78d059ea9f99392ddb",
+      "alphaPixels": {
+        "transparent": 16324,
+        "partial": 14052,
+        "opaque": 49066
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "boss_fortress",
+      "slots": [
+        "bossFortress"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/boss_fortress.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_005.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "56fdc1a0c371113d5ffca306a82ee12f8ee2901191cfc80f4042f80954f2c2c9",
+      "sourceBytes": 122148,
+      "file": "assets/glitch/boss_fortress.webp",
+      "sha256": "773f8badb7a804c5cfc4efb63d81d627e2e96687342047adafa4c77d1e713b1b",
+      "bytes": 85258,
+      "width": 337,
+      "height": 274,
+      "visibleRgbaSHA256": "85e7f4ee6b47a3fee880f2c28bdae72011998a68ee453c790d1ada6ee5cc5d95",
+      "alphaSHA256": "2dfa6d62fe3fd8eae1007df8969cba7bc78fbdbc58e9b1afcbf93595980fe2fa",
+      "alphaPixels": {
+        "transparent": 22477,
+        "partial": 16830,
+        "opaque": 53031
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "boss_summoner",
+      "slots": [
+        "bossSummoner"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/boss_summoner.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_006.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "6a16cc80ab288937758c089834be2caefabe24d19b95cd5ddec66d282f875bee",
+      "sourceBytes": 123921,
+      "file": "assets/glitch/boss_summoner.webp",
+      "sha256": "5c0c0db7c7ba6679940cf47290c430bb85def8c595d76f853d8ae501bf7c77ee",
+      "bytes": 88260,
+      "width": 292,
+      "height": 277,
+      "visibleRgbaSHA256": "da85049ca3e917dcb4e58337f03ca9be107a4e2fe3d700df115b248a4c3e0024",
+      "alphaSHA256": "e17c4d88399f0259aede9fc8347ef29befc192d49e9951b4883e21a1eaa7fe58",
+      "alphaPixels": {
+        "transparent": 26196,
+        "partial": 16432,
+        "opaque": 38256
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "corpse",
+      "slots": [
+        "corpse"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/corpse.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_007.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "03b1bae27e0117a4c5333bcc3c6eaaba78a7651e6a101221cb9500c5dbdb99f0",
+      "sourceBytes": 89625,
+      "file": "assets/glitch/corpse.webp",
+      "sha256": "b807b08545e6fb9e427b6013d600df882f3dd641171a78acd5f09203aa9b68bd",
+      "bytes": 61878,
+      "width": 294,
+      "height": 339,
+      "visibleRgbaSHA256": "528e1f435fba5ebb6bb805bdbdde35027c7e097316438ceb3c09d9b2fe1c1fa7",
+      "alphaSHA256": "b0355d62bb01fecc672c061e0c7353b5780e0b60da2217fe994c88ae1266057d",
+      "alphaPixels": {
+        "transparent": 45788,
+        "partial": 13055,
+        "opaque": 40823
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "corpse_fast",
+      "slots": [
+        "corpseFast"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/corpse_fast.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_008.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "5ee2717ab3a42f0b2f47ab57f536af7ae7f291bb78b81013af80fab8ca8e55a3",
+      "sourceBytes": 91579,
+      "file": "assets/glitch/corpse_fast.webp",
+      "sha256": "1cd412398ce4f67849a9f9bbea993a0a5060d8e630f744fcc08699dd3d8676db",
+      "bytes": 64880,
+      "width": 265,
+      "height": 342,
+      "visibleRgbaSHA256": "2c98a146d44d1b4aeb5c8dc541828a7cd36d9020c39e067c2bb9ace2f384810b",
+      "alphaSHA256": "60207b6435c8d72018cb9108c872f776d5e6328ff087881f528aa00104e2df21",
+      "alphaPixels": {
+        "transparent": 52649,
+        "partial": 12256,
+        "opaque": 25725
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "corpse_bomb",
+      "slots": [
+        "corpseBomb"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/corpse_bomb.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_009.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "14b44c4d16abf5c2a4df8d2fa2121d3c72b276761c6b73c20cb8d0fd84c4abdc",
+      "sourceBytes": 111289,
+      "file": "assets/glitch/corpse_bomb.webp",
+      "sha256": "1fab70e29de273f98d546f452eb9869914a063faef39be0295f729c35ae4d728",
+      "bytes": 75950,
+      "width": 305,
+      "height": 357,
+      "visibleRgbaSHA256": "bd2662c02a7f0b0a63b9e5fd881f549f154177b60951c6868b1c41ca57c359e7",
+      "alphaSHA256": "f7faec501c42d3d1cde2e5ceae97a466623b5ef95b90b17f73de8ca0ba3befbb",
+      "alphaPixels": {
+        "transparent": 47378,
+        "partial": 14246,
+        "opaque": 47261
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "corpse_armor",
+      "slots": [
+        "corpseOrange"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/corpse_armor.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_010.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "3b957344323da75e536a53613cacb963afad279dcc36638d71c1e0cff6bb38a2",
+      "sourceBytes": 118668,
+      "file": "assets/glitch/corpse_armor.webp",
+      "sha256": "9d2c95a0a4d4b9c7837880f4a0ea52119ac0622b345bc66ac635d8fe2b9b3d8b",
+      "bytes": 82736,
+      "width": 318,
+      "height": 242,
+      "visibleRgbaSHA256": "2ad184194cb9d50a11330f1cf0c0f2e0bae41b17297832f660b8d4306a87e6cf",
+      "alphaSHA256": "358421d351e5209583f99f21b9caf86bd7bf07fa5966a55e8b10bc054e5749ae",
+      "alphaPixels": {
+        "transparent": 13423,
+        "partial": 14173,
+        "opaque": 49360
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "corpse_boss_fortress",
+      "slots": [
+        "corpseBossFortress"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/corpse_boss_fortress.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_011.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "d883142154aea9bec1273d1e21d5ca22521aa6aaa1c18980da0fda65ce5f1a70",
+      "sourceBytes": 118557,
+      "file": "assets/glitch/corpse_boss_fortress.webp",
+      "sha256": "2dcf09b7159deb4578c19e2a00f748ca57075cd15ab6f2c7f0c05fe0d0bcc063",
+      "bytes": 83872,
+      "width": 340,
+      "height": 244,
+      "visibleRgbaSHA256": "f39dfd0766027206a1392219e74ec389be1673e092503542414f5e18795fda71",
+      "alphaSHA256": "82a6af7aa638aa4b71149bdde2dd05088b306d482f577372b7945950e150b189",
+      "alphaPixels": {
+        "transparent": 15891,
+        "partial": 15817,
+        "opaque": 51252
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "corpse_boss_summoner",
+      "slots": [
+        "corpseBossSummoner"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/corpse_boss_summoner.png",
+      "sourceOrigin": "production/monsters-enhanced-candidate/candidate-elements/element_012.png",
+      "sourceMethod": "透明工坊双图enhanced：视觉预览候选，严格一致性未通过",
+      "sourceSHA256": "d8f2e537c030e0912f701478ac90dffcf6e98206cc2a2850a62862d476c5264c",
+      "sourceBytes": 119141,
+      "file": "assets/glitch/corpse_boss_summoner.webp",
+      "sha256": "00bb9fc331ef5c64c7aa096b054c4f2d09b5f9c37c09c85cf0e6c736527acfe9",
+      "bytes": 83938,
+      "width": 304,
+      "height": 249,
+      "visibleRgbaSHA256": "d62d5c177022a43cfed9a76d4a2a2afce98a3607fab6123be166ed890a94b5e2",
+      "alphaSHA256": "f219f67113e277b0a1e23237586a8c0666e0737f4f6239190d0ec2e29a250c12",
+      "alphaPixels": {
+        "transparent": 22108,
+        "partial": 15575,
+        "opaque": 38013
+      },
+      "method": "lossless-webp-visible-rgba-verified",
+      "limitation": "源素材为近似透明视觉候选，透明工坊严格一致性未通过；本次仅无损转码，不修复或宣称消除来源差异。"
+    },
+    {
+      "name": "ui_heart",
+      "slots": [
+        "uiHeart"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_heart.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_001.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "fffbfe3847578101c8aa04590f24964b400a602dc5ac825aa93447d78446ca59",
+      "sourceBytes": 48319,
+      "file": "assets/glitch/ui_heart.webp",
+      "sha256": "8f8a7565c96e58fbb81b4e53551812c8b4dc876d2467c815f6890b5ede095d1e",
+      "bytes": 30064,
+      "width": 219,
+      "height": 184,
+      "visibleRgbaSHA256": "0aa464c85d63a1d591d2d4f4670dc01de60d877eed46c0d6c6f4f63b853fe132",
+      "alphaSHA256": "b7afcd42f8ead6dec497bd3a103ac389814801918bbead1f98caa15c7dcbfb9a",
+      "alphaPixels": {
+        "transparent": 13482,
+        "partial": 2128,
+        "opaque": 24686
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_coin",
+      "slots": [
+        "uiCoin"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_coin.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_002.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "2bb0152e07fd3d3bb9542bdfba49fa81969c2886b2734f7f2635664b95ee5e8b",
+      "sourceBytes": 52372,
+      "file": "assets/glitch/ui_coin.webp",
+      "sha256": "96d8ee10e37fc46a8e9bb12cf3ef397e2c7ab7db124835e2831a4fd9b773dbf5",
+      "bytes": 34978,
+      "width": 190,
+      "height": 189,
+      "visibleRgbaSHA256": "dd1036c6f366304f7c2da1e6904bf018d40051cae280dba7fa23c0f4bd592e93",
+      "alphaSHA256": "edcce47a2887a394f72052be4040906b06f0ffda3b912730d8bcaf4d60b18040",
+      "alphaPixels": {
+        "transparent": 7550,
+        "partial": 1900,
+        "opaque": 26460
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_xp",
+      "slots": [
+        "uiXp"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_xp.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_003.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "80b96d44d366f5180d55912e3532c1664554dac2dfd8f381ef2c148f470ab629",
+      "sourceBytes": 38693,
+      "file": "assets/glitch/ui_xp.webp",
+      "sha256": "569318b110ec35fe58d6162660e1c2102f059969dd3304e214939abebc47cf7b",
+      "bytes": 25816,
+      "width": 157,
+      "height": 210,
+      "visibleRgbaSHA256": "e8c72358b47e5d1d731f4c7168c32e3fd633851c699a561b660fb4c8cb12ec7a",
+      "alphaSHA256": "a54884a348e56c51496f47b17b41727787d815a52f2b0891aa5ac72d02a1abd7",
+      "alphaPixels": {
+        "transparent": 15690,
+        "partial": 1729,
+        "opaque": 15551
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_crown",
+      "slots": [
+        "uiCrown"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_crown.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_004.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "ec45ee00de81b980da96608f6ec0b3141a3af6861cd06ae2120864ddcf61e9c4",
+      "sourceBytes": 49234,
+      "file": "assets/glitch/ui_crown.webp",
+      "sha256": "22923a6592384c649e91ce40cf116660ff6f1d2bba24524b2382aa67cfec4ef5",
+      "bytes": 33950,
+      "width": 218,
+      "height": 175,
+      "visibleRgbaSHA256": "956dad51ff97243e6ee4214aa304618000083ef65b1ffd5c8de7aa96dd56983d",
+      "alphaSHA256": "071bac90113ac0f5460313ee1671fa5c4b1a8685f8b55d781c11ab52e5dd5c2e",
+      "alphaPixels": {
+        "transparent": 13387,
+        "partial": 2540,
+        "opaque": 22223
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_pause",
+      "slots": [
+        "uiPause"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_pause.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_005.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "85fed9ef9027bd0d5e031830a6e60f0f5f3f883438567d8e8054c578977b3ec0",
+      "sourceBytes": 42600,
+      "file": "assets/glitch/ui_pause.webp",
+      "sha256": "4d9e527a7626ba01be8af35ae781d60fdea0109509627ee9d72089a339a32c81",
+      "bytes": 27956,
+      "width": 196,
+      "height": 195,
+      "visibleRgbaSHA256": "2e97631c69ec716db8eb6646102ecbf577ca34923f67a57de8c4988d51d909d5",
+      "alphaSHA256": "787943f0899625acbab9630c830e503c1a25b64260a618e664c2b0ad28172ecc",
+      "alphaPixels": {
+        "transparent": 1838,
+        "partial": 2346,
+        "opaque": 34036
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_button",
+      "slots": [
+        "uiButton"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_button.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_006.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "bf8a6bf37d96f871f43ce78d223c17a77e16f84f647ed2a8b41a6d4b7451821e",
+      "sourceBytes": 33416,
+      "file": "assets/glitch/ui_button.webp",
+      "sha256": "ac23e63e456f0085dcdd7919549453c58685b73e362f48f3abedb8982ae997c2",
+      "bytes": 21356,
+      "width": 287,
+      "height": 129,
+      "visibleRgbaSHA256": "e86560f8d8bdbae6c162e71dcf7da22163f5a2f5321d19793833d25443640171",
+      "alphaSHA256": "18e5189a13f15f425234a9f15b2c9f5b597a440ca562405af9ed0f812aa4350c",
+      "alphaPixels": {
+        "transparent": 2467,
+        "partial": 2575,
+        "opaque": 31981
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_track",
+      "slots": [
+        "uiTrack"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_track.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_007.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "04848d1714a8720e61f8cb8f8cf3db41a86a7660738d4307e4f5733ca3666826",
+      "sourceBytes": 19564,
+      "file": "assets/glitch/ui_track.webp",
+      "sha256": "bdcb0135d0fe8fd90e1fa89d366cfb4604d1f7c6c32c5e82ec865842dbe95ff5",
+      "bytes": 13278,
+      "width": 287,
+      "height": 71,
+      "visibleRgbaSHA256": "155b6d5157ca683d7766e365682fc622ccfffe1ac655db4fe586c2778a7cec22",
+      "alphaSHA256": "a520ec289c96234f30681f920e3a5b23a64fcf0c3b6c83cb4f71ae2f1b47afc5",
+      "alphaPixels": {
+        "transparent": 563,
+        "partial": 2135,
+        "opaque": 17679
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_brand",
+      "slots": [
+        "uiBrand"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_brand.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_008.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "fbd28e0161d9ca6bca5ff343b027bd3d6a6d317c236352d59b5064ec60385a6c",
+      "sourceBytes": 62804,
+      "file": "assets/glitch/ui_brand.webp",
+      "sha256": "74bf3e5e436ebcf6f6380167bbebbfb9f9318fab6a714ea709fc8bf618a9ff2c",
+      "bytes": 44170,
+      "width": 219,
+      "height": 198,
+      "visibleRgbaSHA256": "4094869e0ce272a96710e0135d6e0ea3a81078b13aac92a35a1cee022ba8ede8",
+      "alphaSHA256": "2483d937b85a47c0765b28ecc862e763e7af85c651c2d8487c670ec3a0c47267",
+      "alphaPixels": {
+        "transparent": 20208,
+        "partial": 3644,
+        "opaque": 19510
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_slot",
+      "slots": [
+        "uiSlot"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_slot.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_009.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "a42481fb6280257658092d2a0627b218da51b9d8a92747de8fb9fccb2746db12",
+      "sourceBytes": 41516,
+      "file": "assets/glitch/ui_slot.webp",
+      "sha256": "6f7060e2cf620a85edee36dade41108868e3a3a943844e4aea285214a3261560",
+      "bytes": 26258,
+      "width": 218,
+      "height": 207,
+      "visibleRgbaSHA256": "723bd7e7573e96f86bfa79e194134dc3ceb9f91ce28027271b7aa9d2a0e3fc1b",
+      "alphaSHA256": "3b68534057f712a7288455ab22c5bf244fe9e2bc2937a4f90752239cca4b3549",
+      "alphaPixels": {
+        "transparent": 2354,
+        "partial": 2362,
+        "opaque": 40410
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_slot_selected",
+      "slots": [
+        "uiSlotSelected"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_slot_selected.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_010.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "e2119625e4830993924c441d5bd235c549577ce0e70856333de6e6e96851c607",
+      "sourceBytes": 43256,
+      "file": "assets/glitch/ui_slot_selected.webp",
+      "sha256": "1a5c17ca3700c9048a083045281c5516c89efa710ea0996afdd574a92334bee3",
+      "bytes": 27252,
+      "width": 219,
+      "height": 207,
+      "visibleRgbaSHA256": "6fc3a70d0b137127b943a33ab786889df3a0859b5446858a836ead973cd6e133",
+      "alphaSHA256": "54c28da3bfbb85b236e2dc582682febae8993eaec028dab63993fe77652e19b6",
+      "alphaPixels": {
+        "transparent": 2301,
+        "partial": 2550,
+        "opaque": 40482
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_slot_disabled",
+      "slots": [
+        "uiSlotDisabled"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_slot_disabled.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_011.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "10f34a4b4cb4cc57822ec956cf0f5edeb91a0c9c497e52d6f524c0eaefde81c3",
+      "sourceBytes": 42623,
+      "file": "assets/glitch/ui_slot_disabled.webp",
+      "sha256": "496bcd3c0f98663e263f0ebc2b71517b3960358e37228b84136c78dea5dd694b",
+      "bytes": 26904,
+      "width": 218,
+      "height": 207,
+      "visibleRgbaSHA256": "8db8a757328269981ce86d6c90bb7536ac1b6900564656f5ab099451043d5519",
+      "alphaSHA256": "795b0387b14062f598e9aa458754e64dd101a16ddff401acef5a6a1b23f5fbe8",
+      "alphaPixels": {
+        "transparent": 2084,
+        "partial": 2413,
+        "opaque": 40629
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_panel",
+      "slots": [
+        "uiPanel"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_panel.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_012.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "ccfa01dd3ede2ff32f9199e7ad784be496ce4f6b547c5234ff6f0fb59d6b32f7",
+      "sourceBytes": 41649,
+      "file": "assets/glitch/ui_panel.webp",
+      "sha256": "c5417189630088b4fc03892af65a57bcd0d49338949bc1aa29f7f91bc7b9929b",
+      "bytes": 26324,
+      "width": 277,
+      "height": 175,
+      "visibleRgbaSHA256": "5b3369da515b169199ba4b5df6f493d912167f90305df2b90208c9a4409fc7bc",
+      "alphaSHA256": "ae71371144279452efc0e7cf86b84f0e7250253b98040af008ea801f070c5c1d",
+      "alphaPixels": {
+        "transparent": 2460,
+        "partial": 2729,
+        "opaque": 43286
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_card",
+      "slots": [
+        "uiCard"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_card.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_013.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "e8115746ed1afb19f1d37b562548c9e69a5c2bacb7f230e7b15e5ca529afc944",
+      "sourceBytes": 43690,
+      "file": "assets/glitch/ui_card.webp",
+      "sha256": "113d82e508032b68e4aed088d4057509089d44e123036901fab9b752106533be",
+      "bytes": 28010,
+      "width": 162,
+      "height": 254,
+      "visibleRgbaSHA256": "0d52a0b6213c0b4fcbf43d5d922570a684d0164f122edb4a66ca512ee02cbf0c",
+      "alphaSHA256": "b45305c183750f8fdc0ee88a810a05b687488a011f2803cf778745983025abfb",
+      "alphaPixels": {
+        "transparent": 1332,
+        "partial": 2218,
+        "opaque": 37598
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_card_selected",
+      "slots": [
+        "uiCardSelected"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_card_selected.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_014.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "d78113bbd3668f888a56276364bc28dec7a136848d61b034cabf43874a376f01",
+      "sourceBytes": 43972,
+      "file": "assets/glitch/ui_card_selected.webp",
+      "sha256": "2b3e2838ce3a41b703f321b83916a4ce94c41d7467b69e25231413c5753cba6c",
+      "bytes": 28396,
+      "width": 163,
+      "height": 255,
+      "visibleRgbaSHA256": "65a8bd4b87938bf17dac862c42cd331e8a282f955f9093c470097e078be111eb",
+      "alphaSHA256": "a5a3125d6740c117049c90c59c3a9be77515bfb7012c1c8d620067577391b520",
+      "alphaPixels": {
+        "transparent": 1846,
+        "partial": 2083,
+        "opaque": 37636
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_hud",
+      "slots": [
+        "uiHud"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_hud.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_015.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "6e9e211d7cd775a43486b601c2bdd1a332cf91329dd643c11479d5bc92d85a15",
+      "sourceBytes": 32599,
+      "file": "assets/glitch/ui_hud.webp",
+      "sha256": "e88237e21bbe1b553f6baa65801f6f7767b4dc7b3b522f2736134023ce13ccc2",
+      "bytes": 20992,
+      "width": 371,
+      "height": 100,
+      "visibleRgbaSHA256": "5c348a36fa2afec10c18f3c791c3451415248fc0acc2dd2f9500db0433512f80",
+      "alphaSHA256": "1edbc54e834c1b8ce4822da88a05cdee42bc10fe071832c4ada7e9b8848177a8",
+      "alphaPixels": {
+        "transparent": 1010,
+        "partial": 2741,
+        "opaque": 33349
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "ui_danger",
+      "slots": [
+        "uiDanger"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/ui_danger.png",
+      "sourceOrigin": "production/ui/candidate-elements/element_016.png",
+      "sourceMethod": "透明工坊色键+自动拆分",
+      "sourceSHA256": "5f40c9c6e57bb2d6b6ff24b7bbb43c06b2efb0a2cdc1a993185a101897dfe802",
+      "sourceBytes": 32358,
+      "file": "assets/glitch/ui_danger.webp",
+      "sha256": "47b5f4829027d17c4a6d652975ad28339ac81006dc504ae42c14b02ee05db951",
+      "bytes": 20838,
+      "width": 266,
+      "height": 118,
+      "visibleRgbaSHA256": "498bfa3a23bcc669c63bf13b4532370d2f3b705bde0dc9bf43ee22120e3b10c0",
+      "alphaSHA256": "baa00d2fac69e99b7dcc9a28ee3c9a1b3e3d08ee0a9abf3a2cf8df2cd640b6cb",
+      "alphaPixels": {
+        "transparent": 2162,
+        "partial": 2292,
+        "opaque": 26934
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "enemy_ultra_fast",
+      "slots": [
+        "enemyUltraFast"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/enemy_ultra_fast.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_001.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "82f8ec2139be389f25d177811004919b27a378e06362f9cade64f99b3a3398d2",
+      "sourceBytes": 93372,
+      "file": "assets/glitch/enemy_ultra_fast.webp",
+      "sha256": "c7865b7b01b25fecc550a2e666e1819ae7073e62b456e3a5a93fb00599818b54",
+      "bytes": 66766,
+      "width": 311,
+      "height": 369,
+      "visibleRgbaSHA256": "0565eb097048818feb1aa56f29cf67fc254351a0239b3807746b2b18071195fa",
+      "alphaSHA256": "14701d4b0273074edba9b2e0c9e41f432498f6a03ddfdae106234216715f7000",
+      "alphaPixels": {
+        "transparent": 72004,
+        "partial": 42414,
+        "opaque": 341
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "corpse_ultra_fast",
+      "slots": [
+        "corpseUltraFast"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/corpse_ultra_fast.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_002.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "47e5c13beeb67866f37861a8890342cb84000b6a05463ae7e480b9868cd703f1",
+      "sourceBytes": 69902,
+      "file": "assets/glitch/corpse_ultra_fast.webp",
+      "sha256": "635b97212fa157c75a414702bc2a9829d05c8f4d0e405a78152d8d950daa9a0c",
+      "bytes": 48526,
+      "width": 391,
+      "height": 391,
+      "visibleRgbaSHA256": "c3fcf6f40fa51909a6b3286472e0d7df8808a3da64ce727d2526c96bde339540",
+      "alphaSHA256": "c7b5d7989099e1daf316cbb7e3971ffb04406c8244c63c51b59a5ca0c10ed788",
+      "alphaPixels": {
+        "transparent": 123213,
+        "partial": 29428,
+        "opaque": 240
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "skill_recall",
+      "slots": [
+        "skillRecall"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/skill_recall.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_003.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "b7d08e87ca047ead415619c7d7d283283001a85f2611505e0ece0c92458be5fa",
+      "sourceBytes": 129911,
+      "file": "assets/glitch/skill_recall.webp",
+      "sha256": "fb144af36b8c6c37aa10e080c298d9562130a2c3c834c965ef91d27edfe5bc31",
+      "bytes": 90112,
+      "width": 371,
+      "height": 347,
+      "visibleRgbaSHA256": "036d409bb0923d32689f94e8fb7e346095613af576db7d9c5e24f9bec5cf2403",
+      "alphaSHA256": "7814f28574a7dfbb333d5199bf4dbf6dfad3dedb3aa0dc599a0d7fae4248d07c",
+      "alphaPixels": {
+        "transparent": 61655,
+        "partial": 66632,
+        "opaque": 450
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "skill_platforms",
+      "slots": [
+        "skillPlatforms"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/skill_platforms.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_004.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "aeb0c322ffebffea3465d75b3b5e40ada989db738241e75fdf1595ddc21c6fba",
+      "sourceBytes": 92568,
+      "file": "assets/glitch/skill_platforms.webp",
+      "sha256": "063c8e9cede4a29340e7b7ee95b609f79be3ea5f0647b4060b6e41f3d41ef77a",
+      "bytes": 62114,
+      "width": 347,
+      "height": 401,
+      "visibleRgbaSHA256": "0e5a3c5840d98b50e28e17c7c1b32c58a8b87fac92d6d03ab8df8927fbba3336",
+      "alphaSHA256": "854fe2eff1827474a045618ec329a686509d37eaf6c8f3160f3d5497df1136d4",
+      "alphaPixels": {
+        "transparent": 80838,
+        "partial": 57914,
+        "opaque": 395
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "skill_damage",
+      "slots": [
+        "skillDamage"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/skill_damage.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_005.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "ee47fe93ca0cbd2f9acb9f1d312873716d56c5bbc0512cc8a9b9b9df2e96c4a3",
+      "sourceBytes": 91078,
+      "file": "assets/glitch/skill_damage.webp",
+      "sha256": "fb457c79a96c1e3a73e0a35eb21033f350e984d555df62b8aed1dc0274509f86",
+      "bytes": 59490,
+      "width": 407,
+      "height": 418,
+      "visibleRgbaSHA256": "7d821976fe29941531c831ea7629d16eb775a6770b69f58034becaec2d419caf",
+      "alphaSHA256": "7a963ead3fe21c4ce09db045727cd577c6d4ee0a0503d8c87081632a4a8391dd",
+      "alphaPixels": {
+        "transparent": 114433,
+        "partial": 55286,
+        "opaque": 407
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "skill_bounce",
+      "slots": [
+        "skillBounce"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/skill_bounce.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_006.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "8837c7261a7bd8f7d27fbde41c7731a2818c5edf59cf8439147c6c3666c80121",
+      "sourceBytes": 127758,
+      "file": "assets/glitch/skill_bounce.webp",
+      "sha256": "5d3b719dc2cd02e183d8cea235d1e37c3b0cd9f8fdb411e93bed0a091ceb94e7",
+      "bytes": 89402,
+      "width": 383,
+      "height": 407,
+      "visibleRgbaSHA256": "d0971e060251938432b8913491f3ae506b6557ba7a86a28d5df1ff9e08053c4e",
+      "alphaSHA256": "5243253f657a4dd0acb07c03cfc557bfec73a3a61e2867a3d6286a084a189aca",
+      "alphaPixels": {
+        "transparent": 87798,
+        "partial": 67646,
+        "opaque": 437
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "skill_pierce",
+      "slots": [
+        "skillPierce"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/skill_pierce.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_007.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "12cd7f4f1cbf0edcdeaaf77c5191d0284d4c037e1b341a839b64ecc3a430c2cf",
+      "sourceBytes": 124757,
+      "file": "assets/glitch/skill_pierce.webp",
+      "sha256": "5d8b915aba3921b6ae1eb40a7f2744bbe1de07aa6ffc5cb28b750c207ba71349",
+      "bytes": 85032,
+      "width": 418,
+      "height": 418,
+      "visibleRgbaSHA256": "f2736589ad277ab56c72583043f4bc0983abfbae4455046dd368255e3cb654de",
+      "alphaSHA256": "f78a879ed53151453ef6566e665f8808d45e9f668e741d9e900c86fb724cffc4",
+      "alphaPixels": {
+        "transparent": 106041,
+        "partial": 68402,
+        "opaque": 281
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "skill_size",
+      "slots": [
+        "skillSize"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/skill_size.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_008.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "a71117cffec46f7f1227779fca77556f319951d563c82b7a1a77a9caed0840ce",
+      "sourceBytes": 142000,
+      "file": "assets/glitch/skill_size.webp",
+      "sha256": "2d88e09180a488fb02492db8a7223b67d2ff3b6af2edf22453a40b82925b13fa",
+      "bytes": 99028,
+      "width": 417,
+      "height": 397,
+      "visibleRgbaSHA256": "3117e5ed9a24d6ed3aa522f3e6e40f1be81affda6873c37829ffb4c41c839bdb",
+      "alphaSHA256": "a115c694d6b7bd5da16284edc4b2d3fcdd137802a20d34a2679c3fdbff08ad9a",
+      "alphaPixels": {
+        "transparent": 90005,
+        "partial": 75143,
+        "opaque": 401
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "skill_split",
+      "slots": [
+        "skillSplit"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/skill_split.png",
+      "sourceOrigin": "production/skills/candidate-elements/element_009.png",
+      "sourceMethod": "原生Alpha+透明工坊网格拆分",
+      "sourceSHA256": "ebc2eba0f70cfec808e527b012f01921d574b4c0c595a0713ecaa7228c051652",
+      "sourceBytes": 118109,
+      "file": "assets/glitch/skill_split.webp",
+      "sha256": "d1dc91052d1e614d82d50f77436a9ea9ed86fed8ecc27ff6fdb3189304a1a1a9",
+      "bytes": 79834,
+      "width": 401,
+      "height": 391,
+      "visibleRgbaSHA256": "8f73fd26f725b12361dafad51c8c8c0588b9a43bdf19bfa3c4fd3f43854beb10",
+      "alphaSHA256": "bc762f9cec8b7cf1d8cdd30ab864873c8927a5ac09d3d1441107836e5f97052c",
+      "alphaPixels": {
+        "transparent": 94487,
+        "partial": 61839,
+        "opaque": 465
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "knife",
+      "slots": [
+        "knife"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/knife.png",
+      "sourceOrigin": "production/items-regions/01-projectile.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "7e9d3201187af9f2727d6e9d33643e0fe67a7aa363f44cc417f03f1644235b99",
+      "sourceBytes": 119595,
+      "file": "assets/glitch/knife.webp",
+      "sha256": "c660194d763fd51fdc512f08fe7c56202141fc09a1ed5bbe39b895eb0cf02880",
+      "bytes": 88978,
+      "width": 436,
+      "height": 225,
+      "visibleRgbaSHA256": "3ce4fc86aad2ed81cb55af06063c004a58a037d0eea2a115cf6e31776cd87a3a",
+      "alphaSHA256": "f0f17c82910dcf2e4452c5bea00205f20ad6203e92574cc079fd650e90af6e9c",
+      "alphaPixels": {
+        "transparent": 20002,
+        "partial": 78098,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "launcher_disc",
+      "slots": [
+        "launcherDisc"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/launcher_disc.png",
+      "sourceOrigin": "production/items-regions/02-aim_target.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "05b6efb7a314a7734f751d1d7ef88b916fbab5ee53eb9540ffbf027d65d5ef5c",
+      "sourceBytes": 214989,
+      "file": "assets/glitch/launcher_disc.webp",
+      "sha256": "87a16b54c2579203c23e48f53029e3efbe0190bc8abaa2538a9aae2e48dc9e17",
+      "bytes": 153754,
+      "width": 401,
+      "height": 402,
+      "visibleRgbaSHA256": "914bbc859daffc5495d16681523fcc13baadc6ace14daba3b4d3d565b2759bb8",
+      "alphaSHA256": "8270cd46f78f84ee6008d924311b887c41943424ab85fd21c0c6120320e5e758",
+      "alphaPixels": {
+        "transparent": 26439,
+        "partial": 134763,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "launcher",
+      "slots": [
+        "launcher"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/launcher.png",
+      "sourceOrigin": "production/items-regions/03-launcher.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "fa1fef9027fb6ff96382ab3dc77cddb0528d68a7c7552e8e0769dd2c09f63e85",
+      "sourceBytes": 169324,
+      "file": "assets/glitch/launcher.webp",
+      "sha256": "9ba40a54a5fc8600a6f32df6e6b12594e5234d2a5f17d129538cfdd43152c08d",
+      "bytes": 123116,
+      "width": 423,
+      "height": 329,
+      "visibleRgbaSHA256": "9b5d69d410d643826557385f0e7648d84fbffff39b48801bf2c0794deb058704",
+      "alphaSHA256": "83ccb35a9efde6d70f6d7aeb8d9ba3eec430bfed397a57cf472d48e7e9cb30bc",
+      "alphaPixels": {
+        "transparent": 26986,
+        "partial": 112181,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "pickup_power",
+      "slots": [
+        "pickupPower"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/pickup_power.png",
+      "sourceOrigin": "production/items-regions/04-fire_buff.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "cee028c228086619f09be6a6926d4087a78cf6dd1b0c3d71c3e4d87f5e490d64",
+      "sourceBytes": 173483,
+      "file": "assets/glitch/pickup_power.webp",
+      "sha256": "7283b11a82f6fe2a630b0b9d7418b5c8aa1b92f82866627af737a46e8f4866e6",
+      "bytes": 123888,
+      "width": 389,
+      "height": 373,
+      "visibleRgbaSHA256": "4dab3eaa584c4fe402b073ad09edafc0490c489b65e23ae08af032f5d35ab133",
+      "alphaSHA256": "9fc0a2829c1e7a034566de2a09212f09f5a9d4005457e9900b6bc29f674ac22a",
+      "alphaPixels": {
+        "transparent": 34499,
+        "partial": 110598,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "pickup_lightning",
+      "slots": [
+        "pickupLightning"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/pickup_lightning.png",
+      "sourceOrigin": "production/items-regions/05-lightning_buff.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "8c6f5c86d329ebeaeb7ce9ecae4f54dd668d6f7b59f35c02828d92849a321a2b",
+      "sourceBytes": 149537,
+      "file": "assets/glitch/pickup_lightning.webp",
+      "sha256": "dd7fccda414fb9ad097a91d329884830bfc9321f9d258421fbc7b83a8d658498",
+      "bytes": 106034,
+      "width": 356,
+      "height": 380,
+      "visibleRgbaSHA256": "a9debf3f3addb32e09ab440e6018d486c328d033b7d32b3001046b1253c3683e",
+      "alphaSHA256": "049cebbf89599f4a769c916795f881db68c10b744d01fce82376ca74dc521e5f",
+      "alphaPixels": {
+        "transparent": 51221,
+        "partial": 84059,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "pickup_ring",
+      "slots": [
+        "pickupRing"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/pickup_ring.png",
+      "sourceOrigin": "production/items-regions/06-teleport_ring.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "c8ed7054acc7299e724bb7abda70a95091868bafa48d217a28fc86c292794194",
+      "sourceBytes": 211176,
+      "file": "assets/glitch/pickup_ring.webp",
+      "sha256": "921079784b4c16ef90ea80317ffe7adf2c97fff8244b53c1b95208002af7533c",
+      "bytes": 154516,
+      "width": 424,
+      "height": 406,
+      "visibleRgbaSHA256": "dbe7b81288f1041da30d51214bedb3aa6853bf14745351e65559f91a0bfb8e61",
+      "alphaSHA256": "757106fca2595433a6948ce8ea2a75e7c2a44261963916acc28f0cc469116a9c",
+      "alphaPixels": {
+        "transparent": 70888,
+        "partial": 101256,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "pickup_seed",
+      "slots": [
+        "pickupSeed"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/pickup_seed.png",
+      "sourceOrigin": "production/items-regions/07-fireball.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "79b3b5b6c1c561be027941f6bea97694d06b6cc65f14e95abfdde7b5c02e6ca8",
+      "sourceBytes": 192367,
+      "file": "assets/glitch/pickup_seed.webp",
+      "sha256": "63c4636a9f272b18c02bedbacefb7dc63195857d4a9231a7da1fa45d64ef00c3",
+      "bytes": 135378,
+      "width": 393,
+      "height": 404,
+      "visibleRgbaSHA256": "40065570fd41418299ed24bd4b912a3b5dbcc773897b547d17883f4c59038f82",
+      "alphaSHA256": "868534c00283717346883334284e9061d3cd0004606414328eb7cdf3892c0948",
+      "alphaPixels": {
+        "transparent": 45738,
+        "partial": 113034,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "explosion",
+      "slots": [],
+      "enabled": false,
+      "unusedReason": "静态爆炸图仅存档备用，未启用；按用户要求沿用项目原有两套完整8帧爆炸特效。",
+      "sourceFile": "assets/png/explosion.png",
+      "sourceOrigin": "production/items-regions/08-explosion.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "b5413133b1515a9ce04e62464431c324f47f89fabf77470c0cf6bcaa41098101",
+      "sourceBytes": 254339,
+      "file": "assets/glitch/explosion.webp",
+      "sha256": "1395d94e06b39d8fd9c324bff3be8c21fee663783a09ed74d7535fdee5b7c96f",
+      "bytes": 180434,
+      "width": 422,
+      "height": 456,
+      "visibleRgbaSHA256": "3584b7d4f64c7206a6bc76afda02a563ec6e23314d679c1cf8ad7aea79890d67",
+      "alphaSHA256": "10217596cbb55e391e16df3e8aa2e4994a5c29e63f9d877f68856ac06c68d9c4",
+      "alphaPixels": {
+        "transparent": 46369,
+        "partial": 146063,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "impact_spark",
+      "slots": [
+        "impactSpark"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/impact_spark.png",
+      "sourceOrigin": "production/items-regions/09-impact_spark.png",
+      "sourceMethod": "原生Alpha+透明工坊区域裁切与独立导出",
+      "sourceSHA256": "283537f73d56877a8988b140a1262aa81ce35fdbb953831b1fe8cd4b7527231c",
+      "sourceBytes": 145829,
+      "file": "assets/glitch/impact_spark.webp",
+      "sha256": "b64ac19dca125ce0aecf9b55639ba1d378fe5291d120f72e4fa44c7ef4ee8bbc",
+      "bytes": 102464,
+      "width": 415,
+      "height": 404,
+      "visibleRgbaSHA256": "8bc7cdd66273a373730d0bd1f8d5654e603c4f718d4f26183dec6841ac5b118c",
+      "alphaSHA256": "6038f1ca15861027fb486f33788b0a9a47b4f90777d24498fc2c5b15c468e89b",
+      "alphaPixels": {
+        "transparent": 71676,
+        "partial": 95984,
+        "opaque": 0
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    },
+    {
+      "name": "background",
+      "slots": [
+        "background"
+      ],
+      "enabled": true,
+      "sourceFile": "assets/png/background.png",
+      "sourceOrigin": "sources/06-arena-background.png",
+      "sourceMethod": "内置imagegen不透明背景",
+      "sourceSHA256": "f63c0c1b4eb6099ea2e1d539dc956b0c1a0d620b5d1926715c57839247a69c4b",
+      "sourceBytes": 1225783,
+      "file": "assets/glitch/background.webp",
+      "sha256": "e16d61c923721531acd053ad20b1f2d22a5f6394ad6e90addafecd7cbc939abb",
+      "bytes": 864360,
+      "width": 941,
+      "height": 1672,
+      "visibleRgbaSHA256": "63af9325e011d5e8fae6a2f7aa4b64c40ad9352c6e4c890b07ffb6cb0703c28a",
+      "alphaSHA256": "01d47491cbeb600913ad9b969c467a20eee08ef528805ef7ff455d14d0b926e6",
+      "alphaPixels": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 1573352
+      },
+      "method": "lossless-webp-visible-rgba-verified"
+    }
+  ]
+}
